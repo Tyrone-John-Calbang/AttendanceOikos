@@ -24,6 +24,8 @@ Route::post('/submitcode', [ForgotPassword::class,'submit']);
 Route::get('/forgot',[Pages::class,'forgotpassword']);
 Route::get('/reset',[Pages::class,'resetpassword']); 
 
+//login pages
+Route::post('/check-email',[ForgotPassword::class,'submit']);
 
 //Routes for admins
 Route::get('/admin/Dashboard',[Pages::class,'a_dashboard']);
