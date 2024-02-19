@@ -107,13 +107,6 @@
             display: flex;
             justify-content: center;
         }
-        textarea{
-            resize:none;
-            font-family:sans-serif;
-            font-size:1rem;
-            padding:.5rem;
-            border:1px solid #dedede;
-        }
         .hidden{
             visibility:hidden;
             opacity:0;
