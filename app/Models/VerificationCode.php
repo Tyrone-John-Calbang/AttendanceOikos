@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class VerificationCode extends Model
 {
     use HasFactory;
+    protected $fillable = ["email","code"];
     public $timestamps=false;
 }
