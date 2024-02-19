@@ -88,15 +88,3 @@ label {
 .sbutton:hover{
     opacity:75%;
 }
-.hidden{
-    visibility:hidden;
-    opacity:0;
-}
-.input-group-special{
-    border-radius: 25px;
-    border: 2px solid gray;
-    padding: 20px; 
-    width: 70%;
-    height: 15px;
-    margin-top: 1em;
-}
