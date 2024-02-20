@@ -19,7 +19,7 @@ use App\Http\Controllers\Pages;
 //Routes for main account
 Route::get('/', [Pages::class,'login']);
 Route::post('/login-user',[LoginController::class,'login']);
-Route::post('/submitcode', [ForgotPassword::class,'submit']);
+
 
 Route::get('/forgot',[Pages::class,'forgotpassword']);
 Route::get('/reset',[Pages::class,'resetpassword']); 
