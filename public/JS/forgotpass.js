@@ -1,6 +1,6 @@
 const csrf = document.querySelector("meta[name = 'csrf-token']")
 let emailInput = document.querySelector("#EI");
-let verificationCode = document.querySelector("#PI");
+let verificationInput = document.querySelector("#PI");
 
 function checkEmail() {
     const email = emailInput.value;
@@ -23,14 +23,32 @@ function checkEmail() {
 }
 
 function showCode(){
-    let email = document.getElementById('EI');
-    let sbutton = document.querySelector('sbutton');
-    let showLabel = document.querySelector('label');
-    let showInput = document.querySelector('input-group-special');
+    let verificationButton = document.getElementById('verificationButton');
+    let hiddenElements = document.querySelectorAll('.hidden');
 
-    sbutton.onclick=()=>{
-        showLabel.classList.remove('hidden');
-        showInput.classList.remove('hidden');
+    verificationButton.hidden = true;
+    hiddenElements.forEach(hiddenElement=>{
+        hiddenElement.hidden = false;
+    });
+
     }
 
+function submitCode() {
+    const verificationCode = verificationInput.value;
+    fetch("/submit-code", {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': csrf.content },
+        body: JSON.stringify({ 'verificationCode': verificationCode })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            window.location.href='/reset';
+        } else {
+            console.log('Code does not exist in the database');
+        }
+    })
+    .catch(error => {
+        console.log('Error checking code', error);
+    });
 }

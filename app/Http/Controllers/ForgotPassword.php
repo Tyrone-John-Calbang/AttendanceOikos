@@ -21,7 +21,7 @@ class ForgotPassword extends Controller
                 "email" => $email,
                 "code" => $code
             ]);
-           Mail::to("Oikos@gmail.com")->send(new CodeVerificationEmail($code));
+           Mail::to("kafelnikovdelarosa@yahoo.com")->send(new CodeVerificationEmail($code));
            return response()->json(["success"=> true]);
         }
         else{
@@ -30,9 +30,9 @@ class ForgotPassword extends Controller
 
     }
     public function verifyCode(Request $request){
-        $code= $request->input("code");
+        $code= $request->input("verificationCode");
         //TODO - write a variable called $codeData that would retreive the verification code table
-        $codeData=VerificationCode::where('code',$codeData) -> first();
+        $codeData=VerificationCode::where('code',$code) -> first();
         //TODO - check if the variable $codeData is not empty then return a json response success=>true otherwise return a json response success=>false
         if($codeData){
         return response()->json(["success"=>true]);
