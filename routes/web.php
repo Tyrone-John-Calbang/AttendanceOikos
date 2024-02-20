@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ForgotPassword;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\EmployeeMasterListController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Pages;
 

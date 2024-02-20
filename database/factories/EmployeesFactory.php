@@ -22,7 +22,6 @@ class EmployeesFactory extends Factory
             //
             'employee_id'=>"202010000",
             'email'=>"employee@email.com",
-            'password'=>bcrypt("1234"),
             'fname'=>"employee firstname",
             'lname'=>"employee lastname",
             'minitial'=>"employee middleinitial",
@@ -30,17 +29,16 @@ class EmployeesFactory extends Factory
             'bday'=>"08/21/2001",
             'phone_number'=>"0915544321",
             'telephone_number'=>"N/A",
+            "age"=>44,
+            "date_employed"=>"02/24/2024",
             'address'=>"420#urelostST.",
             'city'=>"Quezon City",
             'region'=>"NCR",
             'postal_code'=>124,
             'country'=>"Bangladesh",
             'nationality'=>"Filipino",
-            'sex'=>"Male/Female",
-            
-                
-                
-                
+            'gender'=>"Male/Female",
+            'position'=>"Teacher",    
         ];
     }
 }
