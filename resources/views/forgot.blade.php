@@ -16,9 +16,11 @@
         <h1>Forgot Password</h1>
 			<label for="EI">Email:</label>
 				<input type="text" id="EI" class="input-group"/>
-			<label for="PI" hidden>Verification Code:</label>
-				<input type="text" id="PI" class="input-group-special hidden"/>
-        <button onclick= "checkEmail()" class="button sbutton">SUBMIT</button>
+                <small class = "hidden" hidden>Code has been sent to your email</small>
+			<label for="PI" class = "hidden" hidden>Verification Code:</label>
+				<input type="text" id="PI" class="input-group hidden" hidden/>
+        <button onclick= "checkEmail()" class="button sbutton" id="verificationButton">SEND CODE</button>
+        <button onclick= "submitCode()" class="button sbutton hidden" id ="codeButton" hidden>SUBMIT</button>
     </div>
     <div class="bgbox">
         <img src = "/assets/Oikos BG.png" alt = "Image">
