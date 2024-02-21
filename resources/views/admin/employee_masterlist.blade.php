@@ -21,7 +21,6 @@
             border-radius: 5px;
             font-size: 1rem;
         }
-
         .add-emp-btn:hover {
             opacity: 85%;
             cursor: pointer;
@@ -45,9 +44,8 @@
         .add-emp-container {
             position: relative;
             background-color: white;
-            border-radius: 2%;
+            border-radius: 10px;
             width: 60%;
-            height: 70%;
             display: flex;
             flex-direction: column;
             padding: 2rem;
@@ -130,6 +128,20 @@
         </div>
     </div>
 
+<!--
+Things needed
+extension(Done)
+Phone Number (Done)
+Telephone Number(Done)
+City (Done)
+Region (Done)
+Postal Code (Done)
+Country (Done)
+nationality (Done)
+
+Change Gender to Sex (done)
+
+-->
     <div class="modal-mask hidden">
         <div class="add-emp-container">
             <h2>Add Employee</h2>
@@ -148,6 +160,24 @@
                             <label for="lastName">Last Name</label>
                             <input type="text" id="lastName" name="lastName" required>
                         </div>
+                        <div class="input-group">
+                            <label for="extendName">Extension</label>
+                            <input type="text" id="extendName" name="extendName" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="TelNumber">Telephone Number</label>
+                            <input type="text" id="TelNumber" name="TelNumber" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="contactNumber">Contact Number</label>
+                            <input type="text" id="contactNumber" name="contactNumber" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="phoneNumber">Phone Number</label>
+                            <input type="text" id="phoneNumber" name="phoneNumber" required>
+                        </div>
+                        
+                        
                     </div>
                     <div class="input-column">
                         <div class="input-group">
@@ -155,8 +185,24 @@
                             <input type="text" id="address" name="address" required>
                         </div>
                         <div class="input-group">
-                            <label for="contactNumber">Contact Number</label>
-                            <input type="text" id="contactNumber" name="contactNumber" required>
+                            <label for="City">City</label>
+                            <input type="text" id="CityName" name="CityName" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="postalNumber">Postal Code</label>
+                            <input type="text" id="postalNumber" name="postalNumber" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="Region">Region</label>
+                            <input type="text" id="RegionName" name="RegionName" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="countryName">Country</label>
+                            <input type="text" id="countryName" name="countryName" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="nationality">Nationality</label>
+                            <input type="text" id="nationality" name="nationality" required>
                         </div>
                         <div class="input-group">
                             <label for="age">Age</label>
@@ -170,11 +216,15 @@
                             <label for="email">Email</label>
                             <input type="email" id="email" name="email" required>
                         </div>
+                        <div class="input-group">
+                            <label for="Birthday">Birthday</label>
+                            <input type="date" id="birthday" name="birthday" required>
+                        </div>
                     </div>
                     <div class="input-column">
                         <div class="input-group">
-                            <label for="gender">Gender</label>
-                            <select id="gender" name="gender" required>
+                            <label for="sex">Sex</label>
+                            <select id="sex" name="Sex" required>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                                 <option value="other">Other</option>
@@ -183,8 +233,8 @@
                         <div class="input-group">
                             <label for="role">Role</label>
                             <select id="role" name="role" required>
-                                <option value="Teacher">Teacher</option>
-                                <option value="Admin">Admin</option>
+                                <option value="T">Teacher</option>
+                                <option value="A">Admin</option>
                                 <option value="IT">IT</option>
                             </select>
                         </div>
@@ -192,7 +242,7 @@
                 </div>
                 <div class="action-buttons">
                     <button type="button" class="btn-clear">Clear</button>
-                    <button type="submit" class="btn-submit">Submit</button>
+                    <button onclick= "addemployee(event)" class="btn-submit">Submit</button>
                 </div>
             </form>
             <div class="modal-close-btn">
@@ -226,33 +276,46 @@
             console.log('Form submitted');
             modalMask.classList.add('hidden');
         });
-    </script>
 
-    <script>
-        let btn = document.querySelector('#btn');
-        let sidebar = document.querySelector('.sidebar');
-
-        btn.onclick = function () {
-            sidebar.classList.toggle('active');
+        const employee={
+            'First-Name':document.getElementById('firstName').value,
+            'Middle-Name':document.getElementById('middleName').value,
+            'Last-Name':document.getElementById('lastName').value,
+            'extendName':document.getElementById('extendName').value,
+            'Address':document.getElementById('address').value,
+            'Phone-Number':document.getElementById('TelNumber').value,
+            'Contact-Number':document.getElementById('contactNumber').value,
+            'Age':document.getElementById('age').value,
+            'City':document.getElementById('cityName').value,
+            'Region':document.getElementById('regionName').value,
+            'PostalNumber':document.getElementById('postalNumber').value,
+            'Country':document.getElementById('countryName').value,
+            'Nationality':document.getElementById('nationality').value,
+            'Email':document.getElementById('email').value,
+            'Birthday':document.getElementById('birthday').value,
+            'Sex':document.getElementById('sex').value,
+            'Role':document.getElementById('role').value
+        }
+        const csrf = document.querySelector("meta[name='csrf-token']")
+        function addemployee(event){
+            event.preventDefault();
+            fetch("/add-employee",{
+                method: 'POST',
+                headers:{'Content-Type':'application/json','X-CSRF-Token': csrf.content},
+                body:JSON.stringify(employee)
+            })
+            .then(response=>response.json())
+            .then(data =>{
+                console.log(data)
+                location.reload()
+            })
+            .catch(error =>{
+                console.log('Error! Employee data did not submit.',error)
+            })
         }
 
-        function logout(){
-            Swal.fire({
-                position: 'center',
-                icon: 'question',
-                title: 'Are you sure you want to log-out',
-                cancelButtonText:'No',
-                showConfirmButton: true,
-                confirmButtonColor: 'green',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href='/admin/logout';
-                }
-            });
-        }
-
     </script>
-
+    <script src="/JS/navevent.js"></script>
 
 </body>
 </html>

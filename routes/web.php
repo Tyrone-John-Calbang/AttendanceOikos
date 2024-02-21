@@ -44,8 +44,11 @@ Route::get('/admin/Employee_Masterlist',[Pages::class,'a_emasterlist']);
 Route::get('/admin/Time_Record/Student',[Pages::class,'a_tr_student']);
 Route::get('/admin/Time_Record/Employee',[Pages::class,'a_tr_employee']);
 Route::get('/admin/Time_Record/DepEd',[Pages::class,'a_tr_deped']);
+
 Route::get('/student-masterlist', [StudentMasterlistController::class, 'showData']);
 Route::post('/add-student', [StudentMasterlistController::class, 'addStudent']);
+Route::post('/add-employee',[EmployeeMasterListController::class,'create']);
+    
 
 Route::get('/reset', [Pages::class,'resetpassword']);
 
