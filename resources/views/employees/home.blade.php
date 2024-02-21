@@ -123,7 +123,11 @@
                                 <input type="text" id="name" value="Beatrice Field" readonly>
                             </div>
                             <div class="input-group">
-                                <label for="role">role</label>
+                                <label for="name">Extension</label>
+                                <input type="text" id="name" value="III" readonly>
+                            </div>
+                            <div class="input-group">
+                                <label for="role">Role</label>
                                 <input type="text" id="role" value="Teacher" readonly>
                             </div>
                         </div>
@@ -156,8 +160,12 @@
                                 <label for="number">Phone number</label>
                                 <input type="text" id="number" value="09121234569" readonly>
                             </div>
+                            <div class="input-group">
+                                <label for="Personal Information">Birthday</label>
+                                <input type="text" id="Birthdate" value ="06-09-2001" readonly>
+                            </div>
                         </div>
-
+                        
 
                     </div>
                     
