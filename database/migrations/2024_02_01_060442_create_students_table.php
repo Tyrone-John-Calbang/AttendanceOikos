@@ -12,13 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->id("student_id");
-            $table->string('email');
-            $table->string('password');
+            $table->increments('id');
             $table->string('fname');
             $table->string('lname');
-            $table->string('minital');
-            $table->string('nextention');
+            $table->string('mname');
+            $table->string('extension')->nullable();
             $table->string('fetcher');
             $table->integer('level');
             $table->string('section');

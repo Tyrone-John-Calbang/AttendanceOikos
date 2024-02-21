@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "icon" href = "/assets/Oikos Logo.png">
     <link rel="stylesheet" href = "/CSS/admin.css">
@@ -251,136 +252,18 @@
                         </tr>
                     </thead>
                     <tbody id="logTableBody">
-                        <tr>
-                            <td>C137</td>
-                            <td>202010421</td>
-                            <td>Rick Sanchez</td>
-                            <td>03/23/2020</td>
-                            <td>Grade 3</td>
-                            <td>Neitzche</td>
-                            <td>Pending</td>
-                            <td><i class="fa-solid fa-pencil"></i></td>
-                        </tr>
-                        <tr>
-                            <td>PR1ME</td>
-                            <td>202010422</td>
-                            <td>Morty Smith</td>
-                            <td>02/21/2020</td>
-                            <td>Grade 10</td>
-                            <td>Plato</td>
-                            <td>Enrolled</td>
-                            <td><i class="fa-solid fa-pencil"></i></td>
-                        </tr>
-                        <tr>
-                            <td>C021</td>
-                            <td>201910239</td>
-                            <td>Gawr Gura</td>
-                            <td>02/04/2019</td>
-                            <td>Grade 4</td>
-                            <td>Aristotle</td>
-                            <td>Enrolled</td>
-                            <td><i class="fa-solid fa-pencil"></i></td>
-                        </tr>
-                        <tr>
-                            <td>C022</td>
-                            <td>202012730</td>
-                            <td>Amelia Watson</td>
-                            <td>02/03/2020</td>
-                            <td>Grade 5</td>
-                            <td>Paloma</td>
-                            <td>Pending</td>
-                            <td><i class="fa-solid fa-pencil"></i></td>
-                        </tr>
-                        <tr>
-                            <td>C023</td>
-                            <td>202081297</td>
-                            <td>Mori Calliope</td>
-                            <td>03/23/2020</td>
-                            <td>Grade 1</td>
-                            <td>Democritus</td>
-                            <td>Pending</td>
-                            <td><i class="fa-solid fa-pencil"></i></td>
-                        </tr>
-                        <tr>
-                            <td>C024</td>
-                            <td>202017612</td>
-                            <td>Usada Pekora</td>
-                            <td>02/21/2020</td>
-                            <td>Grade 2</td>
-                            <td>Leonidas</td>
-                            <td>Enrolled</td>
-                            <td><i class="fa-solid fa-pencil"></i></td>
-                        </tr>
-                        <tr>
-                            <td>C025</td>
-                            <td>202065748</td>
-                            <td>Shirokami Fubuki</td>
-                            <td>02/24/2018</td>
-                            <td>Grade 3</td>
-                            <td>Xeres</td>
-                            <td>Enrolled</td>
-                            <td><i class="fa-solid fa-pencil"></i></td>
-                        </tr>
-                        <tr>
-                            <td>C026</td>
-                            <td>202010234</td>
-                            <td>Rin Penrose</td>
-                            <td>02/03/2020</td>
-                            <td>Grade 4</td>
-                            <td>Athena</td>
-                            <td>Pending</td>
-                            <td><i class="fa-solid fa-pencil"></i></td>
-                        </tr>
-                        <tr>
-                            <td>C027</td>
-                            <td>202012903</td>
-                            <td>Gin Penrose</td>
-                            <td>02/23/2020</td>
-                            <td>Grade 7</td>
-                            <td>Atreus</td>
-                            <td>Pending</td>
-                            <td><i class="fa-solid fa-pencil"></i></td>
-                        </tr>
-                        <tr>
-                            <td>C028</td>
-                            <td>202010164</td>
-                            <td>Amano Pikamee</td>
-                            <td>02/21/2020</td>
-                            <td>Grade 5</td>
-                            <td>Maximus</td>
-                            <td>Enrolled</td>
-                            <td><i class="fa-solid fa-pencil"></i></td>
-                        </tr>
-                        <tr>
-                            <td>C029</td>
-                            <td>202012394</td>
-                            <td>Uruha Rushia</td>
-                            <td>02/03/2020</td>
-                            <td>Grade 6</td>
-                            <td>Decimus</td>
-                            <td>Enrolled</td>
-                            <td><i class="fa-solid fa-pencil"></i></td>
-                        </tr>
-                        <tr>
-                            <td>C030</td>
-                            <td>202048625</td>
-                            <td>Asa Coco</td>
-                            <td>02/03/2020</td>
-                            <td>Grade 11</td>
-                            <td>Meridus</td>
-                            <td>Pending</td>
-                            <td><i class="fa-solid fa-pencil"></i></td>
-                        </tr>
-                        <tr>
-                            <td>C031</td>
-                            <td>202008520</td>
-                            <td>Tokino Sora</td>
-                            <td>02/03/2020</td>
-                            <td>Grade 10</td>
-                            <td>Gradius</td>
-                            <td>Enrolled</td>
-                            <td><i class="fa-solid fa-pencil"></i></td>
-                        </tr>
+                        @forEach ($Students as $Student) 
+                            <tr>
+                                <td>QR</td>
+                                <td>{{$Student->id}}</td>
+                                <td>{{$Student->fname ." ".$Student->mname ." ".$Student->lname}}</td>
+                                <td>{{$Student->bday}}</td>
+                                <td>{{$Student->level}}</td>
+                                <td>{{$Student->section}}</td>
+                                <td>{{$Student->enroll_status}}</td>
+                                <td><i class="fa-solid fa-pencil"></i></td>
+                            </tr>
+                        @endforEach
                     </tbody>
                 </table>
             </div>
@@ -396,15 +279,15 @@
                 <div class="form-group">
                     <div class="input-group-special">
                         <label for="first-name">First Name</label>
-                        <input type="text" class='input-field' id='first-name'>
+                        <input type="text" class='input-field' id='first-name' required>
                     </div>
                     <div class="input-group-special">
                         <label for="middle-name">Middle Name</label>
-                        <input type="text" class='input-field' id='middle-name'>
+                        <input type="text" class='input-field' id='middle-name' required>
                     </div>
                     <div class="input-group-special">
                         <label for="last-name">Last Name</label>
-                        <input type="text" class='input-field' id='last-name'>
+                        <input type="text" class='input-field' id='last-name' required>
                     </div>
                     <div class="input-group-special">
                         <label for="extension">Extension</label>
@@ -414,7 +297,7 @@
                 <div class="form-group">
                     <div class="input-group-special">
                         <label for="grade-level" style="margin-top: 1em;">Grade Level</label>
-                        <select id="grade-level" class="select-input">
+                        <select id="grade-level" class="select-input" required>
                         <option value="null">
                             ---
                         </option>
@@ -458,7 +341,7 @@
                 </div>
                 <div class="input-group-special">
                     <label for="section" style="margin-top: 1em;">Section</label>
-                    <select id="section" class="select-input">
+                    <select id="section" class="select-input" required>
                         <option value="null">
                             ---
                         </option>
@@ -506,38 +389,38 @@
                 <div class="form-group">
                     <div class="input-group-special">
                         <label for="fetcher">Fetcher</label>
-                        <input type="text" class='input-field' id='fetch'>
+                        <input type="text" class='input-field' id='fetch' required>
                     </div>
                     <div class="input-group-special">
                         <label for="enroll-status">Enroll Status</label>
-                        <input type="text" class='input-field' id='enroll-status'>
+                        <input type="text" class='input-field' id='enroll-status' required>
                     </div>
                     <div class="input-group-special">
                         <label for="birthday">Birthday</label>
-                        <input type="text" class='input-field' id='birthday'>
+                        <input type="text" class='input-field' id='birthday' required>
                     </div>
                     <div class="input-group-special">
                         <label for="address">Address</label>
-                        <input type="text" class='input-field' id='address'>
+                        <input type="text" class='input-field' id='address' required>
                     </div>
                 </div>
                 <br>
                 <div class = "form-group">
                     <div class="input-group-special">
                         <label for="city">City</label>
-                        <input type=text class='input-field' id='city'>
+                        <input type=text class='input-field' id='city' required>
                     </div>
                     <div class="input-group-special">
                         <label for="region">Region</label>
-                        <input type=text class='input-field' id='region'>
+                        <input type=text class='input-field' id='region' required>
                     </div>
                     <div class="input-group-special">
                         <label for="postal-code">Postal Code</label>
-                        <input type=text class='input-field' id='postal-code'>
+                        <input type=text class='input-field' id='postal-code' required>
                     </div>
                     <div class="input-group-special">
                         <label for="country">Country</label>
-                        <input type=text class='input-field' id='country'>
+                        <input type=text class='input-field' id='country' required>
                     </div>
                 </div>
 
@@ -545,19 +428,19 @@
                 <div class = "form-group">
                     <div class="input-group-special">
                         <label for="nationality">Nationality</label>
-                        <input type=text class='input-field' id='nationality'>
+                        <input type=text class='input-field' id='nationality' required>
                     </div>
                     <div class="input-group-special">
                         <label for="sex">Sex</label>
-                        <input type=text class='input-field' id='Sex'>
+                        <input type=text class='input-field' id='sex' required>
                     </div>
                     <div class="input-group-special">
                         <label for="telephone-number">Telephone Number</label>
-                        <input type=text class='input-field' id='telephone-number'>
+                        <input type=text class='input-field' id='telephone-number' required>
                     </div>
                     <div class="input-group-special">
                         <label for="mobile-number">Mobile Number</label>
-                        <input type=text class='input-field' id='mobile-number'>
+                        <input type=text class='input-field' id='mobile-number' required>
                     </div>
                 </div>
 
@@ -566,7 +449,7 @@
 
                 <br><br>
                 <div class="submit-group">
-                    <button class="btn-submit">Add</button>
+                    <button onclick = "addStudent(event)" class="btn-submit">Add</button>
                     <button class="btn-cancel">Cancel</button>
                     <button class="btn-import" onclick="excelOpen(event)">Import</button>
                     <!--FInished
@@ -873,5 +756,6 @@
             document.getElementById("import") .style.display ="none";
         }
     </script>
+    <script src = "/JS/addStudent.js"></script>
 </body>
 </html>
