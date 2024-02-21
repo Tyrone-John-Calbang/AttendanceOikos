@@ -21,8 +21,8 @@ class ForgotPassword extends Controller
                 "email" => $email,
                 "code" => $code
             ]);
-           Mail::to("kafelnikovdelarosa@yahoo.com")->send(new CodeVerificationEmail($code));
-           return response()->json(["success"=> true]);
+        Mail::to("kafelnikovdelarosa@yahoo.com")->send(new CodeVerificationEmail($code));
+        return response()->json(["success"=> true]);
         }
         else{
             return response()->json(["failure"=> false]);
