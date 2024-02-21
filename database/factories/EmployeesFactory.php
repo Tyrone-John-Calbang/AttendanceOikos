@@ -39,6 +39,7 @@ class EmployeesFactory extends Factory
             'nationality'=>"Filipino",
             'gender'=>"Male/Female",
             'position'=>"Teacher",    
+            'status'=>"Inactive",
         ];
     }
 }

@@ -7,6 +7,7 @@
     <link rel="icon" href="/assets/Oikos Logo.png">
     <link rel="stylesheet" href="/CSS/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Oikos Admin: Announcement</title>
 
     <style>
@@ -177,27 +178,6 @@
         let customPopup = document.getElementById('custom-popup');
         let closePopupBtn = document.getElementById('close-popup');
         let confirmAddAnnouncementBtn = document.getElementById('confirm-add-announcement');
-
-        btnSidebar.onclick = function () {
-            sidebar.classList.toggle('active');
-        }
-
-        function logout() {
-            Swal.fire({
-                position: 'center',
-                icon: 'question',
-                title: 'Are you sure you want to log-out',
-                cancelButtonText: 'No',
-                showConfirmButton: true,
-                confirmButtonColor: 'green',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Reload the page
-                    window.location.href = '/admin/logout';
-                }
-            });
-        }
-
         let btnAddAnnouncement = document.querySelector('#add-announcement-btn');
 
         btnAddAnnouncement.onclick = function () {
@@ -227,5 +207,6 @@
             customPopup.style.display = 'none';
         }
     </script>
+    <script src="/JS/navevent.js"></script>
 </body>
 </html>
