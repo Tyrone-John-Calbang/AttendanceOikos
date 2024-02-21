@@ -128,6 +128,19 @@
         </div>
     </div>
 
+<!--
+Things needed
+extension
+Phone Number 
+Telephone Number
+City
+Region
+Postal Code
+Country
+nationality
+
+Change Gender to Sex
+-->
     <div class="modal-mask hidden">
         <div class="add-emp-container">
             <h2>Add Employee</h2>
@@ -170,7 +183,7 @@
                         </div>
                         <div class="input-group">
                             <label for="Birthday">Birthday</label>
-                            <input type="date" id="birthday" name="email" required>
+                            <input type="date" id="birthday" name="birthday" required>
                         </div>
                     </div>
                     <div class="input-column">
@@ -194,7 +207,7 @@
                 </div>
                 <div class="action-buttons">
                     <button type="button" class="btn-clear">Clear</button>
-                    <button type="submit" class="btn-submit">Submit</button>
+                    <button onclick= "addemployee(event)" class="btn-submit">Submit</button>
                 </div>
             </form>
             <div class="modal-close-btn">
@@ -228,6 +241,37 @@
             console.log('Form submitted');
             modalMask.classList.add('hidden');
         });
+
+        const employee={
+            'First-Name':document.getElementById('firstName').value,
+            'Middle-Name':document.getElementById('middleName').value,
+            'Last-Name':document.getElementById('lastName').value,
+            'Address':document.getElementById('address').value,
+            'Contact-Number':document.getElementById('contactNumber').value,
+            'Age':document.getElementById('age').value,
+            'Email':document.getElementById('email').value,
+            'Birthday':document.getElementById('birthday').value,
+            'Gender':document.getElementById('gender').value,
+            'Role':document.getElementById('role').value
+        }
+        const csrf = document.querySelector("meta[name='csrf-token']")
+        function addemployee(event){
+            event.preventDefault();
+            fetch("/add-employee",{
+                method: 'POST',
+                headers:{'Content-Type':'application/json','X-CSRF-Token': csrf.content},
+                body:JSON.stringify(employee)
+            })
+            .then(response=>response.json())
+            .then(data =>{
+                console.log(data)
+                location.reload()
+            })
+            .catch(error =>{
+                console.log('Error! Employee data did not submit.',error)
+            })
+        }
+
     </script>
     <script src="/JS/navevent.js"></script>
 
