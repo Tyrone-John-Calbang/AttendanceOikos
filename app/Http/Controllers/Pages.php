@@ -114,7 +114,8 @@ class Pages extends Controller
         return view("admin.document_request");
     }
     public function a_smasterlist(){
-        return view("admin.student_masterlist");
+        $Students = Students::get();
+        return view("admin.student_masterlist", ["Students"=> $Students]);
     }
     public function a_emasterlist(){
         return view("admin.employee_masterlist");
