@@ -11,32 +11,24 @@ class Employees extends Model
     
     protected $fillable=[
         'employee_id',
-        'email',
-        'password',
         'fname',
         'lname',
         'minitial',
         'extension',
+        'email',
         'bday',
+        'address',
         'phone_number',
         'telephone_number',
-        'address',
+        'age',
+        'date_employed',
+        'gender',
         'city',
         'region',
-        'postal_code',
+        'postal code',
         'country',
         'nationality',
-        'sex',
-        
-
-
-    
-           
-
-
-        
-
-
+        'position',
     ];
     public $timestamps=false;
 }
