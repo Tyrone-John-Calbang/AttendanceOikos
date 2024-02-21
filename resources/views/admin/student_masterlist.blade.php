@@ -826,17 +826,12 @@
                 const matches = level.match(/\d+/);
                 return matches ? parseInt(matches[0]) : 0;
         }
-        let btn = document.querySelector('#btn');
-        let sidebar = document.querySelector('.sidebar');
         let toggleModal=document.querySelector('.add-student-btn');
         let showModal=document.querySelector('.modal-mask');
         let closeModal=document.querySelector('.far');
         let textArea=document.querySelector('textarea');
         let select=document.querySelector('select');
         let gradeElement=document.getElementById('grade-level');
-        btn.onclick = function () {
-            sidebar.classList.toggle('active');
-        }
         toggleModal.onclick=()=>{
             showModal.classList.remove('hidden');
             select.value = "null";
@@ -873,5 +868,6 @@
             document.getElementById("import") .style.display ="none";
         }
     </script>
+    <script src="/JS/navevent.js"></script>
 </body>
 </html>

@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id('employee_id');
+            $table->string('qr')->nullable();
             $table->string('fname');
             $table->string('lname');
             $table->string('minitial')->nullable();
             $table->string('extension')->nullable();
             $table->string('email');
-            $table->string('bday')->nullable();
+            $table->string('bday');
             $table->string('address');
             $table->string('phone_number');
             $table->string('telephone_number')->nullable();
@@ -31,6 +32,7 @@ return new class extends Migration
             $table->string('country')->nullable();
             $table->string('nationality');
             $table->string('position');
+            $table->string('status');
         });
     }
 

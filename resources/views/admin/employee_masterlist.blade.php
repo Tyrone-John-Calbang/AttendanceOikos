@@ -21,7 +21,6 @@
             border-radius: 5px;
             font-size: 1rem;
         }
-
         .add-emp-btn:hover {
             opacity: 85%;
             cursor: pointer;
@@ -45,9 +44,8 @@
         .add-emp-container {
             position: relative;
             background-color: white;
-            border-radius: 2%;
+            border-radius: 10px;
             width: 60%;
-            height: 70%;
             display: flex;
             flex-direction: column;
             padding: 2rem;
@@ -170,6 +168,10 @@
                             <label for="email">Email</label>
                             <input type="email" id="email" name="email" required>
                         </div>
+                        <div class="input-group">
+                            <label for="Birthday">Birthday</label>
+                            <input type="date" id="birthday" name="email" required>
+                        </div>
                     </div>
                     <div class="input-column">
                         <div class="input-group">
@@ -183,8 +185,8 @@
                         <div class="input-group">
                             <label for="role">Role</label>
                             <select id="role" name="role" required>
-                                <option value="Teacher">Teacher</option>
-                                <option value="Admin">Admin</option>
+                                <option value="T">Teacher</option>
+                                <option value="A">Admin</option>
                                 <option value="IT">IT</option>
                             </select>
                         </div>
@@ -227,32 +229,7 @@
             modalMask.classList.add('hidden');
         });
     </script>
-
-    <script>
-        let btn = document.querySelector('#btn');
-        let sidebar = document.querySelector('.sidebar');
-
-        btn.onclick = function () {
-            sidebar.classList.toggle('active');
-        }
-
-        function logout(){
-            Swal.fire({
-                position: 'center',
-                icon: 'question',
-                title: 'Are you sure you want to log-out',
-                cancelButtonText:'No',
-                showConfirmButton: true,
-                confirmButtonColor: 'green',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href='/admin/logout';
-                }
-            });
-        }
-
-    </script>
-
+    <script src="/JS/navevent.js"></script>
 
 </body>
 </html>

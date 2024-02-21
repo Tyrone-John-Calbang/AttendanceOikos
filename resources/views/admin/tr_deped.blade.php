@@ -158,26 +158,6 @@
 
 
     <script>
-        let btn = document.querySelector('#btn');
-        let sidebar = document.querySelector('.sidebar');
-        btn.onclick = function () {
-            sidebar.classList.toggle('active');
-        }
-        function logout(){
-            Swal.fire({
-                position: 'center',
-                icon: 'question',
-                title: 'Are you sure you want to log-out',
-                cancelButtonText:'No',
-                showConfirmButton: true,
-                confirmButtonColor: 'green',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Reload the page
-                    window.location.href='/admin/logout';
-                }
-            });
-        }
         function dropInfo(id){
             let classSelector="._"+id;
             let idSelector="_"+id;
@@ -197,7 +177,7 @@
         }
 
     </script>
-
+    <script src="/JS/navevent.js"></script>
 
 </body>
 </html>

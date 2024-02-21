@@ -300,12 +300,7 @@
     <script>
         var datePicked="";
         var dateCellSelector="";
-        let btn = document.querySelector('#btn');
-        let sidebar = document.querySelector('.sidebar');
-
-        btn.onclick = function () {
-            sidebar.classList.toggle('active');
-        }
+        
         const calendar = document.querySelector('.calendar');
         let fullCalendar= new FullCalendar.Calendar(calendar,{
             timeZone:'local',
@@ -320,7 +315,7 @@
         //let calendarCell=document.querySelector();
         //calendarCell.textContent="Why are you gae";
     </script>
-
+    <script src="/JS/navevent.js"></script>
 
 </body>
 </html>
