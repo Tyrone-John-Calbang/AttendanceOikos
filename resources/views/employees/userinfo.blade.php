@@ -99,7 +99,7 @@
 </head>
 <body>
     @include('component.employee.sidenav')  
-    @include('component.employee.export_toaster') 
+    @include('component.employee.export_toaster')
     <div class="main-content">
         <h1>User</h1>
         <div class="container">
@@ -132,73 +132,73 @@
                 <h3 id=container-title>Employee Details</h3>
                 <div class="field-group">
                     <div class="input-group">
-                        <input type="text" class='input-field' id='last-name' value="Lupin" readonly>
+                        <input type="text" class='input-field' id='last-name' value="Lupin">
                         <label for="last-name">Last Name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='first-name' value="Copernicus" readonly >
+                        <input type="text" class='input-field' id='first-name' value="Copernicus">
                         <label for="first-name">First Name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='middle-name' value="Vincent" readonly >
+                        <input type="text" class='input-field' id='middle-name' value="Vincent">
                         <label for="middle-name">Midde Name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='extension' value="III" readonly >
+                        <input type="text" class='input-field' id='extension' value="III">
                         <label for="extension">Extension</label>
                     </div>
                 </div>
                 <div class="field-group">
                     <div class="input-group">
-                        <input type="date" class='input-field' id='birthdate' value="August-20-2001" readonly >
+                        <input type="date" class='input-field' id='birthdate' value="August-20-2001">
                         <label for="birthdate">Birthdate</label>
                     </div>
                     <div class="input-group-special">
-                        <input type="text" class='input-field' id='phone-number' value="09154054370" readonly >
+                        <input type="text" class='input-field' id='phone-number' value="09154054370">
                         <label for="phone-number">Phone Number</label>
                     </div>
                 </div>
                 <div class="field-group">
                     <div class="input-group-single">
-                        <input type="text" class='input-field' id='address' value="1 Riyal Street CBE Town Brgy Pasong Tamo Quezon City" readonly >
+                        <input type="text" class='input-field' id='address' value="1 Riyal Street CBE Town Brgy Pasong Tamo Quezon City">
                         <label for="address">Address</label>
                     </div>
                 </div>
                 <div class="field-group">
                     <div class="input-group">
-                        <input type="text" class='input-field' id='city' value="Quezon City" readonly >
+                        <input type="text" class='input-field' id='city' value="Quezon City">
                         <label for="city">City</label>
                     </div>
                     <div class="input-group-special">
-                        <input type="text" class='input-field' id='region' value="NCR" readonly >
+                        <input type="text" class='input-field' id='region' value="NCR">
                         <label for="region">Region</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='postal' value="1101" readonly >
+                        <input type="text" class='input-field' id='postal' value="1101">
                         <label for="postal">Postal Code</label>
                     </div>
                 </div>
                 <div class="field-group">
                     <div class="input-group">
-                        <input type="text" class='input-field' id='country' value="Philppines" readonly >
+                        <input type="text" class='input-field' id='country' value="Philppines">
                         <label for="country">Country</label>
                     </div>
                     <div class="input-group-special">
-                        <input type="text" class='input-field' id='nationality' value="Russian" readonly >
+                        <input type="text" class='input-field' id='nationality' value="Russian">
                         <label for="nationality">Nationality</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='sex' value="Male" readonly >
+                        <input type="text" class='input-field' id='sex' value="Male">
                         <label for="sex">Sex</label>
                     </div>
                 </div>
                 <div class="field-group">
                     <div class="input-group-special">
-                        <input type="text" class='input-field' id='email' value="lupinIII@gmail.com" readonly >
+                        <input type="text" class='input-field' id='email' value="lupinIII@gmail.com">
                         <label for="email">Email</label>
                     </div>
                     <div class="input-group-special">
-                        <input type="text" class='input-field' id='telephone' value="N/A" readonly >
+                        <input type="text" class='input-field' id='telephone' value="N/A">
                         <label for="telephone">Telephone Number</label>
                     </div>
                 </div>
@@ -208,19 +208,19 @@
                 <h3 id=container-title>Father's Name</h3>
                 <div class="field-group">
                     <div class="input-group">
-                        <input type="text" class='input-field' id='last-name' value="Lupin" readonly>
+                        <input type="text" class='input-field' id='last-name' value="Lupin"
                         <label for="last-name">Last Name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='first-name' value="Rudeus" readonly >
+                        <input type="text" class='input-field' id='first-name' value="Rudeus">
                         <label for="first-name">First Name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='middle-name' value="Cooperfield" readonly >
+                        <input type="text" class='input-field' id='middle-name' value="Cooperfield">
                         <label for="middle-name">Midde Name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='extension' value="N/A" readonly >
+                        <input type="text" class='input-field' id='extension' value="N/A">
                         <label for="extension">Extension</label>
                     </div>
                 </div>
@@ -228,19 +228,19 @@
                 <h3 id=container-title>Mother's Name</h3>
                 <div class="field-group">
                     <div class="input-group">
-                        <input type="text" class='input-field' id='last-name' value="Vincent" readonly>
+                        <input type="text" class='input-field' id='last-name' value="Vincent"
                         <label for="last-name">Last Name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='first-name' value="Slyphy" readonly >
+                        <input type="text" class='input-field' id='first-name' value="Slyphy">
                         <label for="first-name">First Name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='middle-name' value="Sydney" readonly >
+                        <input type="text" class='input-field' id='middle-name' value="Sydney">
                         <label for="middle-name">Midde Name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='extension' value="N/A" readonly >
+                        <input type="text" class='input-field' id='extension' value="N/A">
                         <label for="extension">Extension</label>
                     </div>
                 </div>
@@ -248,39 +248,39 @@
                 <h3 id=container-title>Spouse's Details</h3>
                 <div class="field-group">
                     <div class="input-group">
-                        <input type="text" class='input-field' id='last-name' value="Spiegel" readonly>
+                        <input type="text" class='input-field' id='last-name' value="Spiegel"
                         <label for="last-name">Last Name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='first-name' value="Spike" readonly >
+                        <input type="text" class='input-field' id='first-name' value="Spike">
                         <label for="first-name">First Name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='middle-name' value="Cole" readonly >
+                        <input type="text" class='input-field' id='middle-name' value="Cole">
                         <label for="middle-name">Midde Name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='extension' value="N/A" readonly >
+                        <input type="text" class='input-field' id='extension' value="N/A">
                         <label for="extension">Extension</label>
                     </div>
                 </div>
                 <div class="field-group">
                     <div class="input-group-special">
-                        <input type="text" class='input-field' id='email' value="Software Developer" readonly >
+                        <input type="text" class='input-field' id='email' value="Software Developer">
                         <label for="email">Occupation</label>
                     </div>
                     <div class="input-group-special">
-                        <input type="text" class='input-field' id='telephone' value="InnovativeTech" readonly >
+                        <input type="text" class='input-field' id='telephone' value="InnovativeTech">
                         <label for="telephone">Employer / Bussiness Name</label>
                     </div>
                 </div>
                 <div class="field-group">
                     <div class="input-group-special">
-                        <input type="text" class='input-field' id='email' value="Don Antonio Holy Spirit" readonly >
+                        <input type="text" class='input-field' id='email' value="Don Antonio Holy Spirit">
                         <label for="email">Bussiness Address</label>
                     </div>
                     <div class="input-group-special">
-                        <input type="text" class='input-field' id='telephone' value="N/A" readonly >
+                        <input type="text" class='input-field' id='telephone' value="N/A">
                         <label for="telephone">Telephone No. ie:(02)00-0000</label>
                     </div>
                 </div>
@@ -292,26 +292,26 @@
                 <h3 style=" margin-top:1rem; margin-bottom:-1rem; text-align:center; font-weight:100;">JUNIOR HIGH</h3>
                 <div class="field-group">
                     <div class="input-group">
-                        <input type="text" class='input-field' id='school_one_name' value="Siena College" readonly>
+                        <input type="text" class='input-field' id='school_one_name' value="Siena College"
                         <label for="school_one_name">School</label>
                     </div>
                     
                     <div class="input-group">
-                        <input type="text" class='input-field' id='school_one_year' value="2001 - 2015" readonly >
+                        <input type="text" class='input-field' id='school_one_year' value="2001 - 2015">
                         <label for="year">Year</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='school_one_contact' value="Mr Joshimiy Gibbs" readonly >
+                        <input type="text" class='input-field' id='school_one_contact' value="Mr Joshimiy Gibbs">
                         <label for="contact">Contact Person</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='school_one_number' value="09154054370" readonly >
+                        <input type="text" class='input-field' id='school_one_number' value="09154054370">
                         <label for="number">Phone Number</label>
                     </div>
                 </div>          
                 <div class="field-group">
                     <div class="input-group-single">
-                        <input type="text" class='input-field' id='school_one_address' value="1 Riyal Street CBE Town Brgy Pasong Tamo Quezon City" readonly >
+                        <input type="text" class='input-field' id='school_one_address' value="1 Riyal Street CBE Town Brgy Pasong Tamo Quezon City">
                         <label for="address">Address</label>
                     </div>
                 </div>
@@ -320,26 +320,26 @@
                 <h3 style=" margin-top:1rem; margin-bottom:-1rem; text-align:center; font-weight:100;">SENIOR HIGH</h3>
                 <div class="field-group">
                     <div class="input-group">
-                        <input type="text" class='input-field' id='school_two_name' value="Siena College" readonly>
+                        <input type="text" class='input-field' id='school_two_name' value="Siena College"
                         <label for="school_two_name">School</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='school_two_year' value="2001 - 2015" readonly >
+                        <input type="text" class='input-field' id='school_two_year' value="2001 - 2015">
                         <label for="year">Year</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='school_two_contact' value="Mr Joshimiy Gibbs" readonly >
+                        <input type="text" class='input-field' id='school_two_contact' value="Mr Joshimiy Gibbs">
                         <label for="contact">Contact Person</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='school_two_number' value="09154054370" readonly >
+                        <input type="text" class='input-field' id='school_two_number' value="09154054370">
                         <label for="number">Phone Number</label>
                     </div>
                 </div>
                             
                 <div class="field-group">
                     <div class="input-group-single">
-                        <input type="text" class='input-field' id='school_two_address' value="1 Riyal Street CBE Town Brgy Pasong Tamo Quezon City" readonly >
+                        <input type="text" class='input-field' id='school_two_address' value="1 Riyal Street CBE Town Brgy Pasong Tamo Quezon City">
                         <label for="address">Address</label>
                     </div>
                 </div>
@@ -348,26 +348,26 @@
                 <h3 style=" margin-top:1rem; margin-bottom:-1rem; text-align:center; font-weight:100;">COLLEGE</h3>
                 <div class="field-group">
                     <div class="input-group">
-                        <input type="text" class='input-field' id='school_three_name' value="Siena College" readonly>
+                        <input type="text" class='input-field' id='school_three_name' value="Siena College"
                         <label for="school_three_name">School</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='school_three_year' value="2001 - 2015" readonly >
+                        <input type="text" class='input-field' id='school_three_year' value="2001 - 2015">
                         <label for="first-name">Year</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='school_three_contact' value="Mr Joshimiy Gibbs" readonly >
+                        <input type="text" class='input-field' id='school_three_contact' value="Mr Joshimiy Gibbs">
                         <label for="middle-name">Contact Person</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='school_three_number' value="09154054370" readonly >
+                        <input type="text" class='input-field' id='school_three_number' value="09154054370">
                         <label for="extension">Phone Number</label>
                     </div>
                 </div>
                             
                 <div class="field-group">
                     <div class="input-group-single">
-                        <input type="text" class='input-field' id='school_three_address' value="1 Riyal Street CBE Town Brgy Pasong Tamo Quezon City" readonly >
+                        <input type="text" class='input-field' id='school_three_address' value="1 Riyal Street CBE Town Brgy Pasong Tamo Quezon City">
                         <label for="address">Address</label>
                     </div>
                 </div>
@@ -379,36 +379,36 @@
                 <h3 style=" margin-top:1rem; margin-bottom:-1rem; text-align:center; font-weight:100;">COMPANY 1</h3>
                 <div class="field-group">
                     <div class="input-group">
-                        <input type="text" class='input-field' id='exp_one_company' value="Umbrella corp." readonly>
+                        <input type="text" class='input-field' id='exp_one_company' value="Umbrella corp."
                         <label for="Company Name">Company name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='exp_one_title' value="Assistant Researcher" readonly >
+                        <input type="text" class='input-field' id='exp_one_title' value="Assistant Researcher">
                         <label for="title/position">title/position</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='exp_one_contact' value="Mr. Alber Wesker" readonly >
+                        <input type="text" class='input-field' id='exp_one_contact' value="Mr. Alber Wesker">
                         <label for="contact">contact person </label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='exp_one_description' value="Medicine Development" readonly >
+                        <input type="text" class='input-field' id='exp_one_description' value="Medicine Development">
                         <label for="description">Description</label>
                     </div>
                 </div>
                 <!--Company 2-->
                 <div class="field-group">
                     <div class="input-group">
-                        <input type="text" class='input-field' id='exp_one_duration' value="1 to 3 years" readonly >
+                        <input type="text" class='input-field' id='exp_one_duration' value="1 to 3 years">
                         <label for="Duration">Duration</label>
                     </div>
                     <div class="input-group-special">
-                        <input type="text" class='input-field' id='exp_one_number' value="09154054370" readonly >
+                        <input type="text" class='input-field' id='exp_one_number' value="09154054370">
                         <label for="phone-number">Phone Number4</label>
                     </div>
                 </div>
                 <div class="field-group">
                     <div class="input-group-single">
-                        <input type="text" class='input-field' id='exp_one_address' value="4221 raccoon City" readonly >
+                        <input type="text" class='input-field' id='exp_one_address' value="4221 raccoon City">
                         <label for="address">address</label>
                     </div>
                 </div>
@@ -417,36 +417,36 @@
                 <h3 style=" margin-top:1rem; margin-bottom:-1rem; text-align:center; font-weight:100;">COMPANY 2</h3>
                 <div class="field-group">
                     <div class="input-group">
-                        <input type="text" class='input-field' id='exp_two_company' value="Oikos" readonly>
+                        <input type="text" class='input-field' id='exp_two_company' value="Oikos"
                         <label for="Company Name">Company name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='exp_two_title' value="Front-end Developer" readonly >
+                        <input type="text" class='input-field' id='exp_two_title' value="Front-end Developer">
                         <label for="title/position">title/position</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='exp_two_contact' value="Jonel Rubio" readonly >
+                        <input type="text" class='input-field' id='exp_two_contact' value="Jonel Rubio">
                         <label for="contact">contact person </label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='exp_two_description' value="Website Development" readonly >
+                        <input type="text" class='input-field' id='exp_two_description' value="Website Development">
                         <label for="description">Description</label>
                     </div>
                 </div>
                 
                 <div class="field-group">
                     <div class="input-group">
-                        <input type="text" class='input-field' id='exp_two_duration' value="2023 - 2024" readonly >
+                        <input type="text" class='input-field' id='exp_two_duration' value="2023 - 2024">
                         <label for="Duration">Duration</label>
                     </div>
                     <div class="input-group-special">
-                        <input type="text" class='input-field' id='exp_two_number' value="09154054370" readonly >
+                        <input type="text" class='input-field' id='exp_two_number' value="09154054370">
                         <label for="phone-number">Phone Number4</label>
                     </div>
                 </div>
                 <div class="field-group">
                     <div class="input-group-single">
-                        <input type="text" class='input-field' id='exp_two_address' value="Gotesco Grand Central 1400,  Caloocan City" readonly >
+                        <input type="text" class='input-field' id='exp_two_address' value="Gotesco Grand Central 1400,  Caloocan City">
                         <label for="address">address</label>
                     </div>
                 </div>
@@ -455,35 +455,35 @@
                 <h3 style=" margin-top:1rem; margin-bottom:-1rem; text-align:center; font-weight:100;">Company 3</h3>
                 <div class="field-group">
                     <div class="input-group">
-                        <input type="text" class='input-field' id='exp_three_company' value="marine" readonly>
+                        <input type="text" class='input-field' id='exp_three_company' value="marine"
                         <label for="Company Name">Company name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='exp_three_title' value="Front-end Developer" readonly >
+                        <input type="text" class='input-field' id='exp_three_title' value="Front-end Developer">
                         <label for="title/position">title/position</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='exp_three_contact' value="Jonel Rubio" readonly >
+                        <input type="text" class='input-field' id='exp_three_contact' value="Jonel Rubio">
                         <label for="contact">contact person </label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='exp_three_description' value="Website Development" readonly >
+                        <input type="text" class='input-field' id='exp_three_description' value="Website Development">
                         <label for="description">Description</label>
                     </div>
                 </div>
                 <div class="field-group">
                     <div class="input-group">
-                        <input type="text" class='input-field' id='exp_three_duration' value="2023 - 2024" readonly >
+                        <input type="text" class='input-field' id='exp_three_duration' value="2023 - 2024">
                         <label for="Duration">Duration</label>
                     </div>
                     <div class="input-group-special">
-                        <input type="text" class='input-field' id='exp_three_number' value="09154054370" readonly >
+                        <input type="text" class='input-field' id='exp_three_number' value="09154054370">
                         <label for="phone-number">Phone Number4</label>
                     </div>
                 </div>
                 <div class="field-group">
                     <div class="input-group-single">
-                        <input type="text" class='input-field' id='exp_three_address' value="Gotesco Grand Central 1400,  Caloocan City" readonly >
+                        <input type="text" class='input-field' id='exp_three_address' value="Gotesco Grand Central 1400,  Caloocan City">
                         <label for="address">address</label>
                     </div>
                 </div>
@@ -499,25 +499,25 @@
                 <h3 style=" margin-top:1rem; margin-bottom:-1rem; text-align:center; font-weight:100;">REFERENCE 1</h3>
                 <div class="field-group">
                     <div class="input-group">
-                        <input type="text" class='input-field' id='reference-one-name' value="Lupin" readonly>
+                        <input type="text" class='input-field' id='reference-one-name' value="Lupin"
                         <label for="name"> Name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='reference-one-company' value="Copernicus" readonly >
+                        <input type="text" class='input-field' id='reference-one-company' value="Copernicus">
                         <label for="company">Company Name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='reference-one-numbers' value="6546547" readonly >
+                        <input type="text" class='input-field' id='reference-one-numbers' value="6546547">
                         <label for="middle-name">Contact Numbers</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='reference-one-relation' value="Boss" readonly >
+                        <input type="text" class='input-field' id='reference-one-relation' value="Boss">
                         <label for="relation">Relation</label>
                     </div>
                 </div>
                 <div class="field-group">
                     <div class="input-group">
-                        <input type="text" class='input-field' id='reference-one-position' value="CEO" readonly >
+                        <input type="text" class='input-field' id='reference-one-position' value="CEO">
                         <label for="position">Position</label>
                     </div>
                 
@@ -526,25 +526,25 @@
                 <h3 style=" margin-top:1rem; margin-bottom:-1rem; text-align:center; font-weight:100;">REFERENCE 2</h3>
                 <div class="field-group">
                     <div class="input-group">
-                        <input type="text" class='input-field' id='reference-twp-name' value="amanda" readonly>
+                        <input type="text" class='input-field' id='reference-twp-name' value="amanda"
                         <label for="name"> Name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='reference-two-company' value="Copernicus" readonly >
+                        <input type="text" class='input-field' id='reference-two-company' value="Copernicus">
                         <label for="company">Company Name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='reference-two-numbers' value="321346541325" readonly >
+                        <input type="text" class='input-field' id='reference-two-numbers' value="321346541325">
                         <label for="middle-name">Contact Numbers</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='reference-two-relation' value="Assistant" readonly >
+                        <input type="text" class='input-field' id='reference-two-relation' value="Assistant">
                         <label for="relation">Relation</label>
                     </div>
                 </div>
                 <div class="field-group">
                     <div class="input-group">
-                        <input type="text" class='input-field' id='reference-two-position' value="assistant head" readonly >
+                        <input type="text" class='input-field' id='reference-two-position' value="assistant head">
                         <label for="position">Position</label>
                     </div>
                 
@@ -556,25 +556,25 @@
                 <h3 style=" margin-top:1rem; margin-bottom:-1rem; text-align:center; font-weight:100;">REFERENCE 3</h3>
                 <div class="field-group">
                     <div class="input-group">
-                        <input type="text" class='input-field' id='reference-three-name' value="Lupin" readonly>
+                        <input type="text" class='input-field' id='reference-three-name' value="Lupin"
                         <label for="name"> Name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='reference-three-company' value="Umbrella" readonly >
+                        <input type="text" class='input-field' id='reference-three-company' value="Umbrella">
                         <label for="company">Company Name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='reference-three-numbers' value="0915577121" readonly >
+                        <input type="text" class='input-field' id='reference-three-numbers' value="0915577121">
                         <label for="middle-name">Contact Numbers</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class='input-field' id='reference-three-relation' value="Co-worker" readonly >
+                        <input type="text" class='input-field' id='reference-three-relation' value="Co-worker">
                         <label for="relation">Relation</label>
                     </div>
                 </div>
                 <div class="field-group">
                     <div class="input-group">
-                        <input type="text" class='input-field' id='reference-three-position' value="medicine assistant" readonly >
+                        <input type="text" class='input-field' id='reference-three-position' value="medicine assistant">
                         <label for="position">Position</label>
                     </div>
                 
@@ -610,8 +610,23 @@
             prevDisplay.classList.remove('show');
             targetDisplay.classList.add('show');
         }
-    </script>
 
+        const saveBtn = document.querySelector('.toaster');
+        saveBtn.addEventListener('click', function(){
+            // Code to save changes in the database
+
+            // Send notification that changes are saved
+            Swal.fire({
+                icon: 'success',
+                title: 'Changes saved!',
+                showConfirmButton: false,
+                timer: 1500
+            }).then(() => {
+                // Reload the page after the notification disappears
+                location.reload();
+            });
+        });
+    </script>
 
 </body>
 </html>
