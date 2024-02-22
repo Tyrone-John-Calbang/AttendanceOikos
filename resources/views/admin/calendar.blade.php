@@ -10,7 +10,6 @@
     <!-- implemented sweetalert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
-    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Oikos Admin: Calendar</title>
 
@@ -56,7 +55,6 @@
             font-size:2.5rem;
             border-radius:20px;
             margin:2.5rem;
-           
         }
 
         .delete_cover .yes{
@@ -320,7 +318,15 @@
             </div>
         </div>
     </div>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth'
+            });
+            calendar.render();
+        });
+    </script>
     <script src="/JS/navevent.js"></script>
 
 </body>

@@ -288,6 +288,7 @@
         .button-container .cancel {
             background-color: #ccc;
         }
+
     </style>
 </head>
 <body>
@@ -362,7 +363,7 @@
                                 <td>{{$Student->level}}</td>
                                 <td>{{$Student->section}}</td>
                                 <td>{{$Student->enroll_status}}</td>
-                                <td><i class="fa-solid fa-pencil"></i></td>
+                                <td><button class="action-btn" id="stud-action-btn"><i class="fa-solid fa-pencil"></i></button></td>
                             </tr>
                         @endforEach
                     </tbody>
@@ -422,7 +423,7 @@
     </div>
     <div id="student-modal" class="modal-mask hidden">
         <div class="form-container">
-            <div class="form-header"><h2>Add Student</h2><i class="far fa-times-circle" style="font-size:1.3rem;cursor:pointer;"></i></div>
+            <div class="form-header"><h2>Ad Student</h2><di class="far fa-times-circle" style="font-size:1.3rem;cursor:pointer;"></i></div>
             <form id="form-content">
                 <div class="input-row">
                     <div class="input-column">
@@ -466,170 +467,6 @@
                                 <label for="birthday">Birthdate</label>
                                 <input type="date" id='birthday' required>
                         </div>
-            <div class="form-header">
-                <h2>Add Student</h2>
-                <i class="far fa-times-circle" onclick ="hideStudentModal()" style="font-size:1.3rem;cursor:pointer;"></i>
-            </div>
-            <form id="form-content">
-                <div class="form-group">
-                    <div class="input-group-special">
-                        <label for="first-name">First Name</label>
-                        <input type="text" class='input-field' id='first-name' required>
-                    </div>
-                    <div class="input-group-special">
-                        <label for="middle-name">Middle Name</label>
-                        <input type="text" class='input-field' id='middle-name' required>
-                    </div>
-                    <div class="input-group-special">
-                        <label for="last-name">Last Name</label>
-                        <input type="text" class='input-field' id='last-name' required>
-                    </div>
-                    <div class="input-group-special">
-                        <label for="extension">Extension</label>
-                        <input type="text" class='input-field' id='extension'>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group-special">
-                        <label for="grade-level" style="margin-top: 1em;">Grade Level</label>
-                        <select id="grade-level" class="select-input" required>
-                        <option value="null">
-                            ---
-                        </option>
-                        <option class= "exclude-from-delete" value="1">
-                            Grade 1
-                        </option>
-                        <option class= "exclude-from-delete" value="2">
-                            Grade 2
-                        </option>
-                        <option class= "exclude-from-delete" value="3">
-                            Grade 3
-                        </option>
-                        <option class= "exclude-from-delete" value="4">
-                            Grade 4
-                        </option>
-                        <option class= "exclude-from-delete" value="5">
-                            Grade 5
-                        </option>
-                        <option class= "exclude-from-delete" value="6">
-                            Grade 6
-                        </option>
-                        <option class= "exclude-from-delete" value="7">
-                            Grade 7
-                        </option>
-                        <option class= "exclude-from-delete" value="8">
-                            Grade 8
-                        </option>
-                        <option class= "exclude-from-delete" value="9">
-                            Grade 9
-                        </option>
-                        <option class= "exclude-from-delete" value="10">
-                            Grade 10
-                        </option>
-                        <option class= "exclude-from-delete" value="11">
-                            Grade 11
-                        </option>
-                        <option class= "exclude-from-delete" value="12">
-                            Grade 12
-                        </option>
-                    </select>
-                </div>
-                <div class="input-group-special">
-                    <label for="section" style="margin-top: 1em;">Section</label>
-                    <select id="section" class="select-input" required>
-                        <option value="null">
-                            ---
-                            <option class="_1 exclude-from-delete" value="Luke" hidden>
-                                Luke
-                            </option>
-                            <option class="_1 exclude-from-delete" value="Tyrone" hidden>
-                                Tyrone
-                            </option>
-                            <option class="_1 exclude-from-delete" value="Adrian" hidden>
-                                Adrian
-                            </option>
-                            <option class="_1 exclude-from-delete" value="Fuack" hidden>
-                                Fuack
-                            </option>
-                            <option class="_2 exclude-from-delete" value="Eyo" hidden>
-                                Eyo
-                            </option>
-                            <option class="_2 exclude-from-delete" value="Leggo" hidden>
-                                Leggo
-                            </option>
-                            <option class="_2 exclude-from-delete" value="Bruh" hidden>
-                                Bruh
-                            </option>
-                            <option class="_2 exclude-from-delete" value="Cap" hidden>
-                                Cap
-                            </option>
-                            <option class="_3 exclude-from-delete" value="Placeholder" hidden>
-                                Placeholder
-                            </option>
-                            <option class="_3 exclude-from-delete" value="Masipag" hidden>
-                                Masipag
-                            </option>
-                            <option class="_3 exclude-from-delete" value="Matatag" hidden>
-                                Matatag
-                            </option>
-                            <option class="_3 exclude-from-delete" value="Blood" hidden>
-                                Blood
-                            </option>
-                        </select>
-                </div>
-                </div>
-                <br>
-                <div class="form-group">
-                    <div class="input-group-special">
-                        <label for="fetcher">Fetcher</label>
-                        <input type="text" class='input-field' id='fetch' required>
-                    </div>
-                    <div class="input-group-special">
-                        <label for="enroll-status">Enroll Status</label>
-                        <input type="text" class='input-field' id='enroll-status' required>
-                    </div>
-                    <div class="input-group-special">
-                        <label for="birthday">Birthday</label>
-                        <input type="text" class='input-field' id='birthday' required>
-                    </div>
-                    <div class="input-group-special">
-                        <label for="address">Address</label>
-                        <input type="text" class='input-field' id='address' required>
-                    </div>
-                </div>
-                <br>
-                <div class = "form-group">
-                    <div class="input-group-special">
-                        <label for="city">City</label>
-                        <input type=text class='input-field' id='city' required>
-                    </div>
-                    <div class="input-group-special">
-                        <label for="region">Region</label>
-                        <input type=text class='input-field' id='region' required>
-                    </div>
-                    <div class="input-group-special">
-                        <label for="postal-code">Postal Code</label>
-                        <input type=text class='input-field' id='postal-code' required>
-                    </div>
-                    <div class="input-group-special">
-                        <label for="country">Country</label>
-                        <input type=text class='input-field' id='country' required>
-                    </div>
-                </div>
-
-                <br>
-                <div class = "form-group">
-                    <div class="input-group-special">
-                        <label for="nationality">Nationality</label>
-                        <input type=text class='input-field' id='nationality' required>
-                    </div>
-                    <div class="input-group-special">
-                        <label for="sex">Sex</label>
-                        <input type=text class='input-field' id='sex' required>
-                    </div>
-                    <div class="input-group-special">
-                        <label for="telephone-number">Telephone Number</label>
-                        <input type=text class='input-field' id='telephone-number' required>
                     </div>
                     <div class="input-column">
                         <div class="input-group-special">
@@ -749,6 +586,55 @@
                 </div>
         </div>
     </div>
+
+    {{-- ACTION BUTTON MODAL --}}
+    <div class="eml-modal-mask hidden">
+        <div class="eml-form-container">
+            <div class="eml-details">
+                <div class="emp-icon">
+                    <img src="../assets/testpic.png" alt="student icon" class="emp-img">
+                </div>
+                <div class="emp-name">
+                    Abdul Fahroud<br><i>Student</i>
+                </div>
+            </div>
+            <div class="eml-selection">
+                <h2>Edit Status</h2>
+                <label for="select-status">Status</label>
+                <select id="select-status" class="selection">
+                    <option value="Enrolled">
+                        Enrolled
+                    </option>
+                    <option value="Not Enrolled">
+                        Not Enrolled
+                    </option>
+                </select>
+                <button class="btn-save">Save Status</button>
+            </div>
+            <div class="eml-modal-close">
+                <i class="far fa-times-circle" id="action-modal-close" style="font-size:1.5rem;cursor:pointer;"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // SCRIPT FOR ACTION BUTTON MODAL
+        let btn = document.querySelector('#btn');
+        let sidebar = document.querySelector('.sidebar');
+        let toggleActionModals = document.querySelectorAll('.action-btn');
+        let showActionModal = document.querySelector('.eml-modal-mask');
+        let closeActionModal = document.querySelector('#action-modal-close');
+        btn.onclick = function () {
+            sidebar.classList.toggle('active');
+        }
+        for (let i=0; i<toggleActionModals.length; i++){
+            toggleActionModals[i].onclick=()=>{ showActionModal.classList.remove('hidden') }
+        }
+        closeActionModal.onclick=()=>{
+            showActionModal.classList.toggle('hidden');
+        }
+    </script>
+
     <script>
             document.addEventListener('DOMContentLoaded', function () {
                 var tableBody = document.getElementById('logTableBody');

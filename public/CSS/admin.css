@@ -474,8 +474,8 @@ body {
 .eml-details .emp-img {
     aspect-ratio: auto;
     object-fit: cover;
-    width: 9em;
-    height: 9em;
+    width: 8em;
+    height: 8em;
     border-radius: 100%;
 }
 
@@ -550,8 +550,8 @@ body {
 
 .eml-modal-close .far {
     position: absolute;
-    top: 20px;
-    right: 20px; 
+    top: 1.5rem;
+    right: 2rem; 
 }
 
 .btn-save {
@@ -576,6 +576,15 @@ body {
     opacity:0;
 }
 
+#stud-action-btn {
+    border: none;
+    opacity: 50%;
+}
+
+#stud-action-btn:hover {
+    cursor: pointer;
+    opacity: 100%;
+}
 
 
 
