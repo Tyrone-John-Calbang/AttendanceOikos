@@ -256,6 +256,7 @@
         newCloseModal.addEventListener('click', function() {
             showModal.classList.add('hidden');
         });
+        
             let sortDirectionID = 1;
             let sortDirectionName = 1;
             let sortDirectionRole = 1;
