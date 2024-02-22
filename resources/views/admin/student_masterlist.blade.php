@@ -255,8 +255,6 @@
             flex: 1;
             margin-right: 1rem;
         }
-
-
         .form-container-add {
             text-align: center;
             background-color:white;
@@ -404,7 +402,7 @@
     </div>
     <div id="student-modal" class="modal-mask hidden">
         <div class="form-container">
-            <div class="form-header"><h2>Ad Student</h2><di class="far fa-times-circle" style="font-size:1.3rem;cursor:pointer;"></i></div>
+            <div class="form-header"><h2>Add Student</h2><i class="far fa-times-circle" onclick ="hideStudentModal()" style="font-size:1.3rem;cursor:pointer;"></i></div>
             <form id="form-content">
                 <div class="input-row">
                     <div class="input-column">
@@ -804,8 +802,6 @@
         }
         let toggleModal=document.querySelector('.add-student-btn');
         let showModal=document.querySelector('.modal-mask');
-        let closeModal=document.querySelector('.far');
-        let textArea=document.querySelector('textarea');
         let select=document.querySelector('select');
         let gradeElement=document.getElementById('grade-level');
         
@@ -815,6 +811,7 @@
         function hideStudentModal() {
             document.getElementById('student-modal').classList.add('hidden');
         }
+        
 
         gradeElement.addEventListener('change', ()=>{
             let sectionSelector = '._' + gradeElement.value;
