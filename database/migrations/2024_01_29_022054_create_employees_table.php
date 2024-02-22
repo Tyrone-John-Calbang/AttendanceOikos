@@ -18,14 +18,13 @@ return new class extends Migration
             $table->string('lname');
             $table->string('minitial')->nullable();
             $table->string('extension')->nullable();
-            $table->string('email');
             $table->string('bday');
             $table->string('address');
             $table->string('phone_number');
             $table->string('telephone_number')->nullable();
             $table->integer('age');
-            $table->string('date_employed');
-            $table->string('gender');
+            $table->string('date_employed') -> nullable();
+            $table->string('sex');
             $table->string('city')->nullable();
             $table->string('region')->nullable();
             $table->integer('postal_code')->nullable();
