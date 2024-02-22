@@ -7,12 +7,12 @@
                     <table class="emp-masterlist" style="width: 100%;">
                         <thead>
                             <tr>
-                                <th><button><i class="fa-solid fa-arrow-down-wide-short"></i></button> QR</th>
-                                <th><button><i class="fa-solid fa-arrow-down-wide-short"></i></button> ID</th>
-                                <th><button><i class="fa-solid fa-arrow-down-wide-short"></i></button> Name</th>
-                                <th><button><i class="fa-solid fa-filter"></i></button> Role</th>
-                                <th><button><i class="fa-solid fa-arrow-down-wide-short"></i></button> Date</th>
-                                <th><button><i class="fa-solid fa-filter"></i></button> Status</th>
+                                <th><button><i class="fa-solid fa-arrow-down-wide-short" ></i></button> QR</th>
+                                <th><button><i class="fa-solid fa-arrow-down-wide-short" onclick="sortColumnByID()" ></i></button> ID</th>
+                                <th><button><i class="fa-solid fa-arrow-down-wide-short" onclick="sortColumnByName()"></i></button> Name</th>
+                                <th><button><i class="fa-solid fa-filter" onclick="sortColumnByRole()"></i></button> Role</th>
+                                <th><button><i class="fa-solid fa-arrow-down-wide-short" onclick="sortColumnByDate()"></i></button> Date</th>
+                                <th><button><i class="fa-solid fa-filter" onclick="sortColumnByStatus()"></i></button> Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -256,5 +256,149 @@
         newCloseModal.addEventListener('click', function() {
             showModal.classList.add('hidden');
         });
-        
+            let sortDirectionID = 1;
+            let sortDirectionName = 1;
+            let sortDirectionRole = 1;
+            let sortDirectionDate = 1; 
+            let sortDirectionStatus = 1; 
+            function sortColumnByID() {
+                const tbody = document.querySelector('tbody');
+                const rows = Array.from(tbody.querySelectorAll('tr'));
+
+                const sortedRows = rows.sort((a, b) => {
+                    const aValue = parseInt(a.children[1].innerText); // Convert text to integer for numeric comparison
+                    const bValue = parseInt(b.children[1].innerText);
+                    
+                    return sortDirectionID * (aValue - bValue); // Compare numeric values
+                });
+
+                while (tbody.firstChild) {
+                    tbody.removeChild(tbody.firstChild);
+                }
+
+                sortedRows.forEach(row => tbody.appendChild(row));
+
+                sortDirectionID *= -1; // Update the sorting direction
+
+                const sortIcon = document.querySelector('.sort-button i:nth-child(2)'); // Update the icon selector
+                sortIcon.classList.remove('fa-sort-up', 'fa-sort-down');
+                if (sortDirectionID === 1) {
+                    sortIcon.classList.add('fa-sort-up');
+                } else {
+                    sortIcon.classList.add('fa-sort-down');
+                }
+            }
+
+            function sortColumnByName() {
+                const tbody = document.querySelector('tbody');
+                const rows = Array.from(tbody.querySelectorAll('tr'));
+
+                const sortedRows = rows.sort((a, b) => {
+                    const aValue = a.children[2].innerText;
+                    const bValue = b.children[2].innerText;
+                    
+                    return sortDirectionName * aValue.localeCompare(bValue, undefined, {numeric: true});
+                });
+
+                while (tbody.firstChild) {
+                    tbody.removeChild(tbody.firstChild);
+                }
+
+                sortedRows.forEach(row => tbody.appendChild(row));
+
+                sortDirectionName *= -1; // Update the sorting direction
+                const sortIcon = document.getElementById('sort-icon-name');
+                if (sortDirectionName === 1) {
+                    sortIcon.classList.remove('fa-sort-alpha-down');
+                    sortIcon.classList.add('fa-sort-alpha-up');
+                } else {
+                    sortIcon.classList.remove('fa-sort-alpha-up');
+                    sortIcon.classList.add('fa-sort-alpha-down');
+                }
+
+            }
+
+            function sortColumnByRole() {
+                const tbody = document.querySelector('tbody');
+                const rows = Array.from(tbody.querySelectorAll('tr'));
+
+                const sortedRows = rows.sort((a, b) => {
+                    const aValue = a.children[3].innerText;
+                    const bValue = b.children[3].innerText;
+                    
+                    return sortDirectionName * aValue.localeCompare(bValue, undefined, {numeric: true});
+                });
+
+                while (tbody.firstChild) {
+                    tbody.removeChild(tbody.firstChild);
+                }
+
+                sortedRows.forEach(row => tbody.appendChild(row));
+
+                sortDirectionName *= -1; // Update the sorting direction
+                const sortIcon = document.getElementById('sort-icon-name');
+                if (sortDirectionName === 1) {
+                    sortIcon.classList.remove('fa-sort-alpha-down');
+                    sortIcon.classList.add('fa-sort-alpha-up');
+                } else {
+                    sortIcon.classList.remove('fa-sort-alpha-up');
+                    sortIcon.classList.add('fa-sort-alpha-down');
+                }
+
+            }
+
+            function sortColumnByDate() {
+            const tbody = document.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+
+            const sortedRows = rows.sort((a, b) => {
+                const aValue = new Date(a.children[4].innerText);
+                const bValue = new Date(b.children[4].innerText);
+                
+                return sortDirectionDate * (aValue - bValue);
+            });
+
+            while (tbody.firstChild) {
+                tbody.removeChild(tbody.firstChild);
+            }
+
+            sortedRows.forEach(row => tbody.appendChild(row));
+
+            sortDirectionDate *= -1;
+
+            const sortIcon = document.querySelector('.sort-button i:nth-child(3)');
+            sortIcon.classList.remove('fa-sort-up', 'fa-sort-down');
+            if (sortDirectionDate === 1) {
+                sortIcon.classList.add('fa-sort-up');
+            } else {
+                sortIcon.classList.add('fa-sort-down');
+            }
+        }
+            function sortColumnByStatus() {
+            const tbody = document.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+
+            const sortedRows = rows.sort((a, b) => {
+                const aValue = a.children[5].innerText;
+                const bValue = b.children[5].innerText;
+                
+                return sortDirectionStatus * aValue.localeCompare(bValue);
+            });
+
+            while (tbody.firstChild) {
+                tbody.removeChild(tbody.firstChild);
+            }
+
+            sortedRows.forEach(row => tbody.appendChild(row));
+
+            sortDirectionStatus *= -1;
+
+            const sortIcon = document.querySelector('.sort-button i:nth-child(7)');
+            sortIcon.classList.remove('fa-sort-up', 'fa-sort-down');
+            if (sortDirectionStatus === 1) {
+                sortIcon.classList.add('fa-sort-up');
+            } else {
+                sortIcon.classList.add('fa-sort-down');
+            }
+        }
         </script>

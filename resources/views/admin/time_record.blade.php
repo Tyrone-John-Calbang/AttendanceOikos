@@ -15,11 +15,19 @@
         .view-container{
             margin: 6em;
             display: flex;
-            justify-content: center;
+            justify-content: space-around; 
+            flex-wrap: wrap; 
+            gap: 1rem;
+        
         }
-        .student-container{
+        .student-container,
+        .employee-container,
+        .deped-container {
             display: flex;
-            width: 25%;
+            align-items: center; 
+            justify-content: center; 
+            flex-direction: row; 
+            flex-basis: 25%; 
             background-color: #323468;
             border-radius: 8px;
             overflow: hidden;
@@ -27,37 +35,13 @@
             color: white;
             padding: 8px 16px;
             align-items: center;
-        }   
-        .employee-container{
-            display: flex;
-            width: 25%;
-            background-color: #323468;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.250);
-            color: white;
-            margin-left: 10em;
-            padding: 8px 16px;
-            align-items: center;
-        } 
-        .deped-container{
-            display: flex;
-            width: 25%;
-            background-color: #323468;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.250);
-            color: white;
-            margin-left: 10em;
-            padding: 8px 16px;
-            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
         .form-group{
             display: flex;
             flex-direction: column;
-            padding: 5px;
-            margin-left: 2em;
-            width: 100%;
+            flex: 1;
         }
         .view-container i {
             font-size: 2em;
@@ -79,6 +63,18 @@
         .btn-view:hover{
             cursor: pointer;
             opacity:75%;
+        }
+        @media screen and (max-width: 768px) {
+            .view-container {
+                margin: 2em; /* Adjust margin */
+            }
+
+            .student-container,
+            .employee-container,
+            .deped-container {
+                flex-basis: 100%; /* Full width on smaller screens */
+                margin-bottom: 1rem; /* Add bottom margin */
+            }
         }
     </style>
 </head>

@@ -60,10 +60,6 @@
             flex-direction: column;
         }
 
-        .input-group label {
-            font-weight: bold;
-        }
-
         .input-group input,
         .input-group select {
             padding: 0.5rem;
@@ -176,8 +172,6 @@ Change Gender to Sex (done)
                             <label for="phoneNumber">Phone Number</label>
                             <input type="text" id="phoneNumber" name="phoneNumber" required>
                         </div>
-                        
-                        
                     </div>
                     <div class="input-column">
                         <div class="input-group">
@@ -217,7 +211,7 @@ Change Gender to Sex (done)
                             <input type="email" id="email" name="email" required>
                         </div>
                         <div class="input-group">
-                            <label for="Birthday">Birthday</label>
+                            <label for="Birthday">Birthdate</label>
                             <input type="date" id="birthday" name="birthday" required>
                         </div>
                     </div>

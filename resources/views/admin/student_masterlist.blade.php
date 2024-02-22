@@ -25,6 +25,42 @@
             margin-top: 1em;
             margin-bottom: 1em;
         }
+        .add-grade-level-btn {
+            font-size: 1em;
+            font: sans-serif;
+            padding: 10px;
+            background-color: #323468;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+        .add-section-btn {
+            font-size: 1em;
+            font: sans-serif;
+            padding: 10px;
+            background-color: #323468;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+        .rem-btn {
+            font-size: 1em;
+            font: sans-serif;
+            padding: 10px;
+            background-color: #323468;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
         .far{
             transform:translateX(1em);
         }
@@ -141,9 +177,17 @@
             flex-direction:column;
         }
         .input-group-special{
-            width:50%;
-            display:flex;
-            flex-direction:column;
+            display: flex;
+            flex-direction: column;
+        }
+        .input-group-special input,
+        .input-group-special select {
+            padding: 0.5rem;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            margin-bottom: .5rem;
+            width: 100%;
         }
         .input-field{
             border:none; 
@@ -190,19 +234,76 @@
             opacity:0.2;
             letter-spacing: 0.5em
         }
+        .input-row {
+            display: flex;
+            width: 100%;
+        }
+
+        .input-column {
+            flex: 1;
+            margin-right: 1rem;
+
+
+        .form-container-add {
+            text-align: center;
+            background-color:white;
+            border-radius:5px;
+            width:30%;
+            padding:2em;
+        }
+
+        .form-group-add {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 4%;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .button-container button {
+            margin: 0 5px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .button-container #confirm-add-grade-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .button-container #confirm-add-section-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .button-container #confirm-remove-btn {
+            background-color: #5f0a0a;
+            color: white;
+        }
+
+        .button-container .cancel {
+            background-color: #ccc;
+        }
     </style>
 </head>
 <body>
     @include('component.admin.sidenav')
     <div class="main-content">
         <h1>Student Master List</h1>
-        <button class="add-student-btn">+ Add a Student</button>
+        <button class="add-student-btn" onclick="showStudentModal()">+ Add a Student</button>
+        <button class="add-grade-level-btn" onclick="showAddGradeModal()">+ Add a Grade Level</button>
+        <button class="add-section-btn" onclick="showAddSectionModal()">+ Add a Section</button>        
+        <button class="rem-btn" onclick="showRemoveModal()">- Remove Grade Level/Section</button>
             <div class="std-log-container">
                 <div class="header-std-list"><h2>Student List</h2>
                     <div class="std-filter-container">
                         <div class="search-table-container">
                             <div class="std-search-container">
-                                <input type="text" id="search" size="30" placeholder="Search...">
+                                <input type="text" id="search" size="30" placeholder="Search..." oninput="applyFilter()">
                             </div>
                         </div>
                     </div>
@@ -269,11 +370,105 @@
             </div>
             <div class="container"></div>
     </div>
-    <div class="modal-mask hidden">
+    <div id="remove-modal" class="modal-mask hidden">
+        <div class="form-container-add">
+            <div class="form-header">
+                <i id="close-remove-modal" class="far fa-times-circle" onclick ="hideRemoveModal()" style="font-size: 1.3rem; cursor: pointer;"></i>
+            </div>
+            <div class="form-group-add">
+                <div class="input-group-add">
+                    <label for="remove-dropdown">Select Grade Level/Section to Remove</label>
+                    <select id="remove-dropdown" class="select-input">
+                    </select>
+                </div>
+            </div>
+            <div class="button-container">
+                <button id="confirm-remove-btn" onclick ="removeSelectedGradeLevelOrSection()">Remove</button>
+                <button id="cancel-remove-btn" onclick ="hideRemoveModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div id="add-grade-modal" class="modal-mask hidden">
+        <div class="form-container-add">
+            <form id="form-content-add">
+                <div class="form-group-add">
+                    <div class="input-group-add">
+                        <label for="new-grade-level">Enter the new Grade Level:</label>
+                        <input type="text" id="new-grade-level" class="input-field" required>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button onclick="confirmAddGradeLevel()" id="confirm-add-grade-btn">Add Grade Level</button>
+                    <button class="cancel" onclick="hideAddGradeModal()" id="cancel-add-grade-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>    
+    <div id="add-section-modal" class="modal-mask hidden">
+        <div class="form-container-add">
+            <form id="form-content-add">
+                <div class="form-group-add">
+                    <div class="input-group-add">
+                        <label for="new-section">Enter the new Section:</label>
+                        <input type="text" id="new-section" class="input-field" required>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button onclick="confirmAddSection()" id="confirm-add-section-btn">Add Section</button>
+                    <button class="cancel" onclick="hideAddSectionModal()" id="cancel-add-section-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="student-modal" class="modal-mask hidden">
         <div class="form-container">
+            <div class="form-header"><h2>Add Student</h2><i class="far fa-times-circle" style="font-size:1.3rem;cursor:pointer;"></i></div>
+            <form id="form-content">
+                <div class="input-row">
+                    <div class="input-column">
+                        <div class="input-group-special">
+                                <label for="first-name">First Name</label>
+                                <input type="text" class='input-field' id='first-name' required>
+                        </div>
+                        <div class="input-group-special">
+                                <label for="middle-name">Middle Name</label>
+                                <input type="text" class='input-field' id='middle-name' required>
+                        </div>
+                        <div class="input-group-special">
+                                <label for="last-name">Last Name</label>
+                                <input type="text" class='input-field' id='last-name' required>
+                        </div>
+                        <div class="input-group-special">
+                                <label for="extension">Suffix</label>
+                                <input type="text" class='input-field' id='extension'>
+                        </div>
+                        <div class="input-group-special">
+                            <label for="sex">Sex</label>
+                            <select id="sex" class="select-input" required>
+                                <option value="null">---</option>
+                                <option value="1">Male</option>
+                                <option value="2">Female</option>
+                            </select>
+                        </div>
+                        <div class="input-group-special">
+                            <label for="telephone-number">Telephone Number</label>
+                            <input type="text" class='input-field' id='telephone-number' required>
+                        </div>
+                        <div class="input-group-special">
+                            <label for="mobile-number">Mobile Number</label>
+                            <input type="text" class='input-field' id='mobile-number' required>
+                        </div>
+                        <div class="input-group-special">
+                            <label for="nationality">Nationality</label>
+                            <input type="text" class='input-field' id='nationality' required>
+                        </div>
+                        <div class="input-group-special">
+                                <label for="birthday">Birthdate</label>
+                                <input type="date" id='birthday' required>
+                        </div>
             <div class="form-header">
                 <h2>Add Student</h2>
-                <i class="far fa-times-circle" style="font-size:1.3rem;cursor:pointer;"></i>
+                <i class="far fa-times-circle" onclick ="hideStudentModal()" style="font-size:1.3rem;cursor:pointer;"></i>
             </div>
             <form id="form-content">
                 <div class="form-group">
@@ -301,40 +496,40 @@
                         <option value="null">
                             ---
                         </option>
-                        <option value="1">
+                        <option class= "exclude-from-delete" value="1">
                             Grade 1
                         </option>
-                        <option value="2">
+                        <option class= "exclude-from-delete" value="2">
                             Grade 2
                         </option>
-                        <option value="3">
+                        <option class= "exclude-from-delete" value="3">
                             Grade 3
                         </option>
-                        <option value="4">
+                        <option class= "exclude-from-delete" value="4">
                             Grade 4
                         </option>
-                        <option value="5">
+                        <option class= "exclude-from-delete" value="5">
                             Grade 5
                         </option>
-                        <option value="6">
+                        <option class= "exclude-from-delete" value="6">
                             Grade 6
                         </option>
-                        <option value="7">
+                        <option class= "exclude-from-delete" value="7">
                             Grade 7
                         </option>
-                        <option value="8">
+                        <option class= "exclude-from-delete" value="8">
                             Grade 8
                         </option>
-                        <option value="9">
+                        <option class= "exclude-from-delete" value="9">
                             Grade 9
                         </option>
-                        <option value="10">
+                        <option class= "exclude-from-delete" value="10">
                             Grade 10
                         </option>
-                        <option value="11">
+                        <option class= "exclude-from-delete" value="11">
                             Grade 11
                         </option>
-                        <option value="12">
+                        <option class= "exclude-from-delete" value="12">
                             Grade 12
                         </option>
                     </select>
@@ -344,45 +539,43 @@
                     <select id="section" class="select-input" required>
                         <option value="null">
                             ---
-                        </option>
-                        
-                        <option class = "_1" value="Luke" hidden>
-                            Luke
-                        </option>
-                        <option class = "_1" value="Tyrone" hidden>
-                            Tyrone
-                        </option>
-                        <option class = "_1" value="Adrian" hidden>
-                            Adrian
-                        </option>
-                        <option class = "_1" value="Fuack" hidden>
-                            Fuack
-                        </option>
-                        <option class = "_2" value="Eyo" hidden>
-                            Eyo
-                        </option>
-                        <option class = "_2" value="Leggo" hidden>
-                            Leggo
-                        </option>
-                        <option class = "_2" value="Bruh" hidden>
-                            Bruh
-                        </option>
-                        <option class = "_2" value="Cap" hidden>
-                            Cap
-                        </option>
-                        <option class = "_3" value="Placeholder" hidden>
-                            Placeholder
-                        </option>
-                        <option class = "_3" value="Masipag" hidden>
-                            Masipag
-                        </option>
-                        <option class = "_3" value="Matatag" hidden>
-                            Matatag
-                        </option>
-                        <option class = "_3" value="Blood" hidden>
-                            Blood
-                        </option>
-                    </select>
+                            <option class="_1 exclude-from-delete" value="Luke" hidden>
+                                Luke
+                            </option>
+                            <option class="_1 exclude-from-delete" value="Tyrone" hidden>
+                                Tyrone
+                            </option>
+                            <option class="_1 exclude-from-delete" value="Adrian" hidden>
+                                Adrian
+                            </option>
+                            <option class="_1 exclude-from-delete" value="Fuack" hidden>
+                                Fuack
+                            </option>
+                            <option class="_2 exclude-from-delete" value="Eyo" hidden>
+                                Eyo
+                            </option>
+                            <option class="_2 exclude-from-delete" value="Leggo" hidden>
+                                Leggo
+                            </option>
+                            <option class="_2 exclude-from-delete" value="Bruh" hidden>
+                                Bruh
+                            </option>
+                            <option class="_2 exclude-from-delete" value="Cap" hidden>
+                                Cap
+                            </option>
+                            <option class="_3 exclude-from-delete" value="Placeholder" hidden>
+                                Placeholder
+                            </option>
+                            <option class="_3 exclude-from-delete" value="Masipag" hidden>
+                                Masipag
+                            </option>
+                            <option class="_3 exclude-from-delete" value="Matatag" hidden>
+                                Matatag
+                            </option>
+                            <option class="_3 exclude-from-delete" value="Blood" hidden>
+                                Blood
+                            </option>
+                        </select>
                 </div>
                 </div>
                 <br>
@@ -438,19 +631,81 @@
                         <label for="telephone-number">Telephone Number</label>
                         <input type=text class='input-field' id='telephone-number' required>
                     </div>
-                    <div class="input-group-special">
-                        <label for="mobile-number">Mobile Number</label>
-                        <input type=text class='input-field' id='mobile-number' required>
+                    <div class="input-column">
+                        <div class="input-group-special">
+                            <label for="fetcher">Fetcher</label>
+                            <input type="text" class='input-field' id='fetch' required>
+                        </div>
+                            <div class="input-group-special">
+                                <label for="address">Address</label>
+                                <input type="text" class='input-field' id='address' required>
+                            </div>
+                            <div class="input-group-special">
+                                <label for="city">City</label>
+                                <input type="text" class='input-field' id='city' required>
+                            </div>
+                            <div class="input-group-special">
+                                <label for="region">Region</label>
+                                <input type="text" class='input-field' id='region' required>
+                            </div>
+                            <div class="input-group-special">
+                                <label for="postal-code">Postal Code</label>
+                                <input type="text" class='input-field' id='postal-code' required>
+                            </div>
+                            <div class="input-group-special">
+                                <label for="country">Country</label>
+                                <input type="text" class='input-field' id='country' required>
+                            </div>
+                            <div class="input-group-special">
+                                <label for="enroll-status">Enrollment Status</label>
+                                <select id="enroll-status" class="select-input" required>
+                                    <option value="null">---</option>
+                                    <option value="1">Enrolled</option>
+                                    <option value="2">Pending</option>
+                                </select>
+                            </div>
+                            <div class="input-group-special">
+                                <label for="grade-level">Grade Level</label>
+                                <select id="grade-level" class="select-input" required>
+                                    <option value="null">---</option>
+                                    <option value="1">Grade 1</option>
+                                    <option value="2">Grade 2</option>
+                                    <option value="3">Grade 3</option>
+                                    <option value="4">Grade 4</option>
+                                    <option value="5">Grade 5</option>
+                                    <option value="6">Grade 6</option>
+                                    <option value="7">Grade 7</option>
+                                    <option value="8">Grade 8</option>
+                                    <option value="9">Grade 9</option>
+                                    <option value="10">Grade 10</option>
+                                    <option value="11">Grade 11</option>
+                                    <option value="12">Grade 12</option>
+                                </select>
+                            </div>
+                            <div class="input-group-special">
+                                <label for="section" >Section</label>
+                                <select id="section" class="select-input" required>
+                                    <option value="null">---</option>
+                                    <option class = "_1" value="Luke" hidden>Luke</option>
+                                    <option class = "_1" value="Tyrone" hidden>Tyrone</option>
+                                    <option class = "_1" value="Adrian" hidden>Adrian</option>
+                                    <option class = "_1" value="Fuack" hidden>Fuack</option>
+                                    <option class = "_2" value="Eyo" hidden>Eyo</option>
+                                    <option class = "_2" value="Leggo" hidden>Leggo</option>
+                                    <option class = "_2" value="Bruh" hidden>Bruh</option>
+                                    <option class = "_2" value="Cap" hidden>Cap</option>
+                                    <option class = "_3" value="Placeholder" hidden>Placeholder</option>
+                                    <option class = "_3" value="Masipag" hidden>Masipag</option>
+                                    <option class = "_3" value="Matatag" hidden>Matatag</option>
+                                    <option class = "_3" value="Blood" hidden>Blood</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-
-
-
                 <br><br>
                 <div class="submit-group">
                     <button onclick = "addStudent(event)" class="btn-submit">Add</button>
-                    <button class="btn-cancel">Cancel</button>
+                    <button class="btn-cancel" onclick ="hideStudentModal()">Cancel</button>
                     <button class="btn-import" onclick="excelOpen(event)">Import</button>
                     <!--FInished
                     fname
@@ -715,14 +970,16 @@
         let textArea=document.querySelector('textarea');
         let select=document.querySelector('select');
         let gradeElement=document.getElementById('grade-level');
-        toggleModal.onclick=()=>{
-            showModal.classList.remove('hidden');
-            select.value = "null";
+
+        function showStudentModal() {
+            document.getElementById('student-modal').classList.remove('hidden');
         }
-        closeModal.onclick=()=>{
-            showModal.classList.toggle('hidden');
-            select.value="null";
+        function hideStudentModal() {
+            document.getElementById('student-modal').classList.add('hidden');
         }
+
+
+
         gradeElement.addEventListener('change', ()=>{
             let sectionSelector = '._' + gradeElement.value;
             let previousSelected = document.querySelectorAll('.show');
@@ -749,6 +1006,193 @@
         function excelclose(event){
             event.preventDefault();
             document.getElementById("import") .style.display ="none";
+        }
+
+
+        gradeElement.addEventListener('change', ()=>{
+            let sectionSelector = '._' + gradeElement.value;
+            let previousSelected = document.querySelectorAll('.show');
+            let sections = document.querySelectorAll(sectionSelector);
+            if (!previousSelected) {
+                return;
+            }
+            else{
+                previousSelected.forEach(prev => {
+                    prev.hidden = true;
+                    prev.classList.remove('show');
+                });
+            }
+            sections.forEach(section=>{
+                section.hidden = false;
+                section.classList.toggle('show');
+            });
+        });
+
+        function excelOpen(event){
+            event.preventDefault();
+            document.getElementById("import") .style.display ="block";
+        }
+        function excelclose(event){
+            event.preventDefault();
+            document.getElementById("import") .style.display ="none";
+        }
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            loadFromLocalStorage('gradeLevels', 'grade-level');
+            loadFromLocalStorage('sections', 'section');
+        });
+
+        function loadFromLocalStorage(storageKey, dropdownId) {
+            const dropdown = document.getElementById(dropdownId);
+            const storedItems = JSON.parse(localStorage.getItem(storageKey)) || [];
+
+
+            storedItems.forEach(item => {
+                const option = document.createElement('option');
+                option.value = item.toLowerCase();
+                option.textContent = item;
+                dropdown.appendChild(option);
+            });
+        }
+
+        function saveToLocalStorage(storageKey, newItem) {
+            const existingItems = JSON.parse(localStorage.getItem(storageKey)) || [];
+            existingItems.push(newItem);
+            localStorage.setItem(storageKey, JSON.stringify(existingItems));
+        }
+
+        function addGradeLevel() {
+            showAddGradeModal();
+        }
+
+        function confirmAddGradeLevel() {
+            const newGradeLevelInput = document.getElementById('new-grade-level');
+            const newGradeLevel = newGradeLevelInput.value.trim();
+
+            if (newGradeLevel) {
+                const gradeLevelDropdown = document.getElementById('grade-level');
+                const newGradeLevelOption = document.createElement('option');
+                newGradeLevelOption.value = newGradeLevel;
+                newGradeLevelOption.textContent = `Grade ${newGradeLevel}`;
+
+                gradeLevelDropdown.appendChild(newGradeLevelOption);
+                saveToLocalStorage('gradeLevels', newGradeLevel);
+                hideAddGradeModal();
+
+                newGradeLevelInput.value = '';
+            }
+        }
+
+        function addSection() {
+            showAddSectionModal();
+        }
+
+        function confirmAddSection() {
+            const newSectionInput = document.getElementById('new-section');
+            const newSection = newSectionInput.value.trim();
+
+            if (newSection) {
+                const sectionDropdown = document.getElementById('section');
+                const newSectionOption = document.createElement('option');
+                newSectionOption.value = newSection.toLowerCase();
+                newSectionOption.textContent = newSection;
+
+                sectionDropdown.appendChild(newSectionOption);
+                saveToLocalStorage('sections', newSection);
+                hideAddSectionModal();
+                newSectionInput.value = '';
+            }
+        }
+
+        document.getElementById('form-content-grade').addEventListener('submit', function(event) {
+            event.preventDefault();
+        });
+
+        document.getElementById('form-content-section').addEventListener('submit', function(event) {
+            event.preventDefault();
+        });
+
+
+        function showRemoveModal() {
+            populateRemoveDropdown();
+            document.getElementById('remove-modal').classList.remove('hidden');
+        }
+
+        function hideRemoveModal() {
+            document.getElementById('remove-modal').classList.add('hidden');
+        }
+
+        function removeSelectedGradeLevelOrSection() {
+            const removeDropdown = document.getElementById('remove-dropdown');
+            const selectedItem = removeDropdown.value;
+
+            if (selectedItem && selectedItem !== "null") {
+                removeDropdown.remove(removeDropdown.selectedIndex);
+                removeFromLocalStorage('gradeLevels', selectedItem);
+                removeFromLocalStorage('sections', selectedItem);
+                hideRemoveModal();
+                location.reload();
+            }
+        }
+
+        function removeFromLocalStorage(storageKey, itemToRemove) {
+            const storedItems = JSON.parse(localStorage.getItem(storageKey)) || [];
+            const updatedItems = storedItems.filter(item => item.toLowerCase() !== itemToRemove.toLowerCase());
+            localStorage.setItem(storageKey, JSON.stringify(updatedItems));
+        }
+
+        document.getElementById('confirm-remove-btn').addEventListener('click', removeSelectedGradeLevelOrSection);
+        document.getElementById('cancel-remove-btn').addEventListener('click', hideRemoveModal);
+
+        function populateRemoveDropdown() {
+            const gradeLevelDropdown = document.getElementById('grade-level');
+            const sectionDropdown = document.getElementById('section');
+            const removeDropdown = document.getElementById('remove-dropdown');
+
+            removeDropdown.innerHTML = '<option value="null">---</option>';
+            populateDropdownOptions(gradeLevelDropdown, removeDropdown, 'Grade');
+            populateDropdownOptions(sectionDropdown, removeDropdown, '');
+
+        function populateDropdownOptions(sourceDropdown, removeDropdown, labelPrefix) {
+            for (let i = 0; i < sourceDropdown.options.length; i++) {
+                   const option = sourceDropdown.options[i];
+                    if (option.value !== "null" && !option.classList.contains('exclude-from-delete')) {
+                        const newOption = document.createElement('option');
+                        newOption.value = option.value;
+                        newOption.textContent = labelPrefix + (option.value || '');
+                        removeDropdown.appendChild(newOption);
+                    }
+                }
+            }
+        }
+        populateRemoveDropdown();
+
+        function showRemoveModal() {
+            populateRemoveDropdown();
+            document.getElementById('remove-modal').classList.remove('hidden');
+        }
+
+        function hideRemoveModal() {
+            document.getElementById('remove-modal').classList.add('hidden');
+        }
+
+
+        function showAddGradeModal() {
+            document.getElementById('add-grade-modal').classList.remove('hidden');
+        }
+
+        function hideAddGradeModal() {
+            document.getElementById('add-grade-modal').classList.add('hidden');
+        }
+
+        function showAddSectionModal() {
+            document.getElementById('add-section-modal').classList.remove('hidden');
+        }
+
+        function hideAddSectionModal() {
+            document.getElementById('add-section-modal').classList.add('hidden');
         }
     </script>
 
