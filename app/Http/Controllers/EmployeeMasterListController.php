@@ -2,29 +2,48 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employees;
 use Illuminate\Http\Request;
 
 class EmployeeMasterListController extends Controller
 {
     public function create(Request $request){
-        $First_Name = $request->input('First-Name');
-        $Middle_Name = $request->input('Middle-Name');
-        $Last_Name = $request ->input('Last-Name');
-        $Address = $request -> input('Address');
-        $Contact_Number = $request -> input('Contact-Number');
-        
-        
-        $Birthday = $request -> input('Birthday');
-        $Gender = $request -> input('Gender');
-        $Role = $request -> input('Role');
+        $firstName = $request->input('firstName');
+        $middleName = $request->input('middleName');
+        $lastName = $request ->input('lastName');
+        $extendName = $request -> input ('extendName');
+        $address = $request -> input('address');
+        $phoneNumber = $request ->input('phoneNumber');
+        $TelNumber = $request -> input('TelNumber');
+        $age=$request ->input('age');
+        $cityName = $request ->input('cityName');
+        $regionName = $request -> input('regionName');
+        $postalNumber = $request -> input('postalNumber');
+        $countryName = $request-> input('countryName');
+        $nationality = $request -> input('nationality');
+        $birthday = $request -> input('birthday');
+        $sex = $request -> input('sex');
+        $position = $request -> input('position');
+       
     
-        employee::create([
-            "fname" =>$First_Name,
-            "lname" =>$Last_Name,
-            "minitial" =>$Middle_Name,
-            "bday"=>$Birthday,
-            "phone_number"=>$Contact_Number,
-            
+        Employees::create([
+            "fname" =>$firstName,
+            "lname" =>$lastName,
+            "minitial" =>$middleName,
+            "bday"=>$birthday,
+            "phone_number"=>$phoneNumber,
+            "extension" => $extendName,
+            "age"=>$age,
+            "telephone_number"=> $TelNumber,
+            "address" =>$address,
+            "city" =>$cityName,
+            "region"=>$regionName,
+            "postal_code"=> $postalNumber,
+            "country" => $countryName,
+            "nationality"=> $nationality,
+            "sex" => $sex,
+            "position"=>$position,
+            "status"=>"Inactive",
             
 
             

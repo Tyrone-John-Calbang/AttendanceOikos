@@ -21,7 +21,7 @@ class EmployeesFactory extends Factory
         return [
             //
             'employee_id'=>"202010000",
-            'email'=>"employee@email.com",
+            
             'fname'=>"employee firstname",
             'lname'=>"employee lastname",
             'minitial'=>"employee middleinitial",
@@ -37,7 +37,7 @@ class EmployeesFactory extends Factory
             'postal_code'=>124,
             'country'=>"Bangladesh",
             'nationality'=>"Filipino",
-            'gender'=>"Male/Female",
+            'sex'=>"Male",
             'position'=>"Teacher",    
             'status'=>"Inactive",
         ];

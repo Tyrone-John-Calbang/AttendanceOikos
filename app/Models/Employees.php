@@ -15,20 +15,19 @@ class Employees extends Model
         'lname',
         'minitial',
         'extension',
-        'email',
         'bday',
         'address',
         'phone_number',
         'telephone_number',
         'age',
-        'date_employed',
-        'gender',
+        'sex',
         'city',
         'region',
-        'postal code',
+        'postal_code',
         'country',
         'nationality',
         'position',
+        'status',
     ];
     public $timestamps=false;
 }
