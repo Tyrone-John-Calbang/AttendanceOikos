@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('employees', function (Blueprint $table) {
-            $table->id('employee_id');
-            $table->string('qr')->nullable();
+            $table->increments('employee_id');
+            $table->string('qr');
             $table->string('fname');
             $table->string('lname');
             $table->string('minitial')->nullable();
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('phone_number');
             $table->string('telephone_number')->nullable();
             $table->integer('age');
-            $table->string('date_employed') -> nullable();
+            $table->string('date_employed');
             $table->string('sex');
             $table->string('city')->nullable();
             $table->string('region')->nullable();

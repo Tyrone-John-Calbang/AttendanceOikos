@@ -18,10 +18,11 @@ class EmployeesFactory extends Factory
      */
     public function definition(): array
     {
+        date_default_timezone_set('Asia/Manila');
+        $date_employed=date('m/d/Y');
         return [
             //
-            'employee_id'=>"202010000",
-            
+            'qr'=>'T'.rand(1000,9999),
             'fname'=>"employee firstname",
             'lname'=>"employee lastname",
             'minitial'=>"employee middleinitial",
@@ -30,7 +31,7 @@ class EmployeesFactory extends Factory
             'phone_number'=>"0915544321",
             'telephone_number'=>"N/A",
             "age"=>44,
-            "date_employed"=>"02/24/2024",
+            "date_employed"=>$date_employed,
             'address'=>"420#urelostST.",
             'city'=>"Quezon City",
             'region'=>"NCR",

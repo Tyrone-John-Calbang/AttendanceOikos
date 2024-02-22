@@ -8,46 +8,29 @@ use Illuminate\Http\Request;
 class EmployeeMasterListController extends Controller
 {
     public function create(Request $request){
-        $firstName = $request->input('firstName');
-        $middleName = $request->input('middleName');
-        $lastName = $request ->input('lastName');
-        $extendName = $request -> input ('extendName');
-        $address = $request -> input('address');
-        $phoneNumber = $request ->input('phoneNumber');
-        $TelNumber = $request -> input('TelNumber');
-        $age=$request ->input('age');
-        $cityName = $request ->input('cityName');
-        $regionName = $request -> input('regionName');
-        $postalNumber = $request -> input('postalNumber');
-        $countryName = $request-> input('countryName');
-        $nationality = $request -> input('nationality');
-        $birthday = $request -> input('birthday');
-        $sex = $request -> input('sex');
-        $position = $request -> input('position');
-       
-    
+        date_default_timezone_set('Asia/Manila');
+        $date_employed=date('m/d/Y');
         Employees::create([
-            "fname" =>$firstName,
-            "lname" =>$lastName,
-            "minitial" =>$middleName,
-            "bday"=>$birthday,
-            "phone_number"=>$phoneNumber,
-            "extension" => $extendName,
-            "age"=>$age,
-            "telephone_number"=> $TelNumber,
-            "address" =>$address,
-            "city" =>$cityName,
-            "region"=>$regionName,
-            "postal_code"=> $postalNumber,
-            "country" => $countryName,
-            "nationality"=> $nationality,
-            "sex" => $sex,
-            "position"=>$position,
+            "qr"=>$request->input('position').rand(1000,9999),
+            "fname" =>$request->input('firstName'),
+            "lname" =>$request->input('lastName'),
+            "minitial" =>$request->input('middleName'),
+            "bday"=>$request->input('birthday'),
+            "phone_number"=>$request->input('phoneNumber'),
+            "extension" => $request->input('extendName'),
+            "age"=>$request->input('age'),
+            "date_employed"=>$date_employed,
+            "telephone_number"=> $request->input('TelNumber'),
+            "address" =>$request->input('address'),
+            "city" =>$request->input('cityName'),
+            "region"=>$request->input('regionName'),
+            "postal_code"=> $request->input('postalNumber'),
+            "country" => $request->input('countryName'),
+            "nationality"=> $request->input('nationality'),
+            "sex" => $request->input('sex'),
+            "position"=>$request->input('position'),
             "status"=>"Inactive",
-            
-
-            
         ]);
-    
+        return response()->json(["success"=>true]);
     }}
 

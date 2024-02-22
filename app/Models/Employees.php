@@ -11,6 +11,7 @@ class Employees extends Model
     
     protected $fillable=[
         'employee_id',
+        'qr',
         'fname',
         'lname',
         'minitial',
@@ -20,6 +21,7 @@ class Employees extends Model
         'phone_number',
         'telephone_number',
         'age',
+        'date_employed',
         'sex',
         'city',
         'region',

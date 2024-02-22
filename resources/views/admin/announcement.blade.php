@@ -172,8 +172,6 @@
     </div>
 
     <script>
-        let btnSidebar = document.querySelector('#btn');
-        let sidebar = document.querySelector('.sidebar');
         let overlay = document.getElementById('overlay');
         let customPopup = document.getElementById('custom-popup');
         let closePopupBtn = document.getElementById('close-popup');

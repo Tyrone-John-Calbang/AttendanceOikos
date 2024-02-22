@@ -1,6 +1,7 @@
 <div class="container-emp-list">
         <div class="employee-list">
-                <div class="header-emp-list"><h3>Employee List</h3>
+                <div class="header-emp-list">
+                    <h3>Employee List</h3>
                 <div class="search-emp-list">
                     <input type="text" id="search-bar" size="30" placeholder="Search..." oninput="applyFilter()">
                 </div>
@@ -19,15 +20,23 @@
                         <tbody id="emp-masterlist-body" >
                             @foreach($employees as $employee)
                             <tr>
-                                <td>QR</td>
-                                <td>{{$employee ->employee_id}}</td>
-                                <td>{{$employee ->fname. " ".$employee ->minitial." ".$employee ->lname}}</td>
-                                <td>{{$employee -> position}}</td>
+                                <td>
+                                    {!! QrCode::size(60)->generate($employee->qr) !!}
+                                </td>
+                                <td>{{$employee->employee_id}}</td>
+                                <td>{{$employee->fname. " ".$employee ->minitial." ".$employee ->lname}}</td>
+                                @if($employee->position=="T")
+                                    <td>Teacher</td>
+                                @elseif($employee->position=="IT")
+                                    <td>IT</td>
+                                @else
+                                    <td>Admin</td>
+                                @endif
                                 <td>{{$employee->bday}}</td>
-                                <td>{{$employee ->status}}</td>
+                                <td style="color:{{$employee->status=="Inactive"?'red':'green'}}">{{($employee ->status)}}</td>
                                 <td><button class="action-btn"><i class="fa-solid fa-pencil"></i></button></td>
                             </tr>
-                            @endforEach;
+                            @endforEach
                         </tbody>
                     </table>
                 </div>
@@ -99,15 +108,10 @@
     }
 }
 
-        let btn = document.querySelector('#btn');
-        let sidebar = document.querySelector('.sidebar');
         let toggleModals = document.querySelectorAll('.action-btn');
         let showModal = document.querySelector('.eml-modal-mask');
         let closeModal = document.querySelector('.far');
         let select = document.querySelector('select');
-        btn.onclick = function () {
-            sidebar.classList.toggle('active');
-        }
         for (let i=0; i<toggleModals.length; i++){
             toggleModals[i].onclick=()=>{ showModal.classList.remove('hidden') }
         }

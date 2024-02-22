@@ -247,12 +247,11 @@ Change Gender to Sex (done)
         let modalMask = document.querySelector('.modal-mask');
         let closeBtn = document.querySelector('.modal-close-btn');
         closeBtn.onclick = () => {
-        modalMask.classList.add('hidden');
+            modalMask.classList.add('hidden');
         }
         addEmpBtn.onclick = () => {
             modalMask.classList.remove('hidden');
         }
-
         let clearBtn = document.querySelector('.btn-clear');
         clearBtn.onclick = () => {
             // Select all input elements within the form and clear their values
@@ -260,7 +259,6 @@ Change Gender to Sex (done)
             // Select all select elements within the form and reset them to their default value
             document.querySelectorAll('#addEmployeeForm select').forEach(select => select.value = select.querySelector('option').value);
         }
-
         let addEmployeeForm = document.getElementById('addEmployeeForm');
         addEmployeeForm.addEventListener('submit', function(event) {
             event.preventDefault();
@@ -273,34 +271,33 @@ Change Gender to Sex (done)
         function addemployee(event){
             event.preventDefault();
             const employee={
-                'firstName':document.getElementById('firstName').value,
-                'middleName':document.getElementById('middleName').value,
-                'lastName':document.getElementById('lastName').value,
-                'extendName':document.getElementById('extendName').value,
-                'address':document.getElementById('address').value,
-                'phoneNumber':document.getElementById('phoneNumber').value,
-                'TelNumber':document.getElementById('TelNumber').value,
-                'age':document.getElementById('age').value,
-                'cityName':document.getElementById('cityName').value,
-                'regionName':document.getElementById('regionName').value,
-                'postalNumber':document.getElementById('postalNumber').value,
-                'countryName':document.getElementById('countryName').value,
-                'nationality':document.getElementById('nationality').value,
-                'birthday':document.getElementById('birthday').value,
-                'sex':document.getElementById('sex').value,
-                'position':document.getElementById('position').value
-            }
+                firstName:document.getElementById('firstName').value,
+                middleName:document.getElementById('middleName').value,
+                lastName:document.getElementById('lastName').value,
+                extendName:document.getElementById('extendName').value,
+                address:document.getElementById('address').value,
+                phoneNumber:document.getElementById('phoneNumber').value,
+                TelNumber:document.getElementById('TelNumber').value,
+                age:document.getElementById('age').value,
+                cityName:document.getElementById('cityName').value,
+                regionName:document.getElementById('regionName').value,
+                postalNumber:document.getElementById('postalNumber').value,
+                countryName:document.getElementById('countryName').value,
+                nationality:document.getElementById('nationality').value,
+                birthday:document.getElementById('birthday').value,
+                sex:document.getElementById('sex').value,
+                position:document.getElementById('position').value
+            };
             fetch("/add-employee",{
-                
                 method: 'POST',
                 headers:{'Content-Type':'application/json','X-CSRF-Token': csrf.content},
                 body:JSON.stringify(employee)
-
             })
             .then(response=>response.json())
             .then(data =>{
-                console.log(data);
-                location.reload();
+                if(data.success){
+                    location.reload();
+                }
             })
             .catch(error =>{
                 console.log('Error! Employee data did not submit.',error);
