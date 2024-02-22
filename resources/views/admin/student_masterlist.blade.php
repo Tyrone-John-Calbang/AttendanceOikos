@@ -289,6 +289,7 @@
         .button-container .cancel {
             background-color: #ccc;
         }
+
     </style>
 </head>
 <body>
@@ -363,7 +364,7 @@
                                 <td>{{$Student->level}}</td>
                                 <td>{{$Student->section}}</td>
                                 <td>{{$Student->enroll_status}}</td>
-                                <td><i class="fa-solid fa-pencil"></i></td>
+                                <td><button class="action-btn" id="stud-action-btn"><i class="fa-solid fa-pencil"></i></button></td>
                             </tr>
                         @endforEach
                     </tbody>
@@ -423,7 +424,7 @@
     </div>
     <div id="student-modal" class="modal-mask hidden">
         <div class="form-container">
-            <div class="form-header"><h2>Add Student</h2><i class="far fa-times-circle" style="font-size:1.3rem;cursor:pointer;"></i></div>
+            <div class="form-header"><h2>Ad Student</h2><di class="far fa-times-circle" style="font-size:1.3rem;cursor:pointer;"></i></div>
             <form id="form-content">
                 <div class="input-row">
                     <div class="input-column">
@@ -587,6 +588,55 @@
                 </div>
         </div>
     </div>
+
+    {{-- ACTION BUTTON MODAL --}}
+    <div class="eml-modal-mask hidden">
+        <div class="eml-form-container">
+            <div class="eml-details">
+                <div class="emp-icon">
+                    <img src="../assets/testpic.png" alt="student icon" class="emp-img">
+                </div>
+                <div class="emp-name">
+                    Abdul Fahroud<br><i>Student</i>
+                </div>
+            </div>
+            <div class="eml-selection">
+                <h2>Edit Status</h2>
+                <label for="select-status">Status</label>
+                <select id="select-status" class="selection">
+                    <option value="Enrolled">
+                        Enrolled
+                    </option>
+                    <option value="Not Enrolled">
+                        Not Enrolled
+                    </option>
+                </select>
+                <button class="btn-save">Save Status</button>
+            </div>
+            <div class="eml-modal-close">
+                <i class="far fa-times-circle" id="action-modal-close" style="font-size:1.5rem;cursor:pointer;"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // SCRIPT FOR ACTION BUTTON MODAL
+        let btn = document.querySelector('#btn');
+        let sidebar = document.querySelector('.sidebar');
+        let toggleActionModals = document.querySelectorAll('.action-btn');
+        let showActionModal = document.querySelector('.eml-modal-mask');
+        let closeActionModal = document.querySelector('#action-modal-close');
+        btn.onclick = function () {
+            sidebar.classList.toggle('active');
+        }
+        for (let i=0; i<toggleActionModals.length; i++){
+            toggleActionModals[i].onclick=()=>{ showActionModal.classList.remove('hidden') }
+        }
+        closeActionModal.onclick=()=>{
+            showActionModal.classList.toggle('hidden');
+        }
+    </script>
+
     <script>
             document.addEventListener('DOMContentLoaded', function () {
                 var tableBody = document.getElementById('logTableBody');
