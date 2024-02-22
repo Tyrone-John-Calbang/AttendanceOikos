@@ -242,6 +242,7 @@
         .input-column {
             flex: 1;
             margin-right: 1rem;
+        }
 
 
         .form-container-add {
@@ -466,171 +467,8 @@
                                 <label for="birthday">Birthdate</label>
                                 <input type="date" id='birthday' required>
                         </div>
-            <div class="form-header">
-                <h2>Add Student</h2>
-                <i class="far fa-times-circle" onclick ="hideStudentModal()" style="font-size:1.3rem;cursor:pointer;"></i>
-            </div>
-            <form id="form-content">
-                <div class="form-group">
-                    <div class="input-group-special">
-                        <label for="first-name">First Name</label>
-                        <input type="text" class='input-field' id='first-name' required>
-                    </div>
-                    <div class="input-group-special">
-                        <label for="middle-name">Middle Name</label>
-                        <input type="text" class='input-field' id='middle-name' required>
-                    </div>
-                    <div class="input-group-special">
-                        <label for="last-name">Last Name</label>
-                        <input type="text" class='input-field' id='last-name' required>
-                    </div>
-                    <div class="input-group-special">
-                        <label for="extension">Extension</label>
-                        <input type="text" class='input-field' id='extension'>
-                    </div>
+                    
                 </div>
-                <div class="form-group">
-                    <div class="input-group-special">
-                        <label for="grade-level" style="margin-top: 1em;">Grade Level</label>
-                        <select id="grade-level" class="select-input" required>
-                        <option value="null">
-                            ---
-                        </option>
-                        <option class= "exclude-from-delete" value="1">
-                            Grade 1
-                        </option>
-                        <option class= "exclude-from-delete" value="2">
-                            Grade 2
-                        </option>
-                        <option class= "exclude-from-delete" value="3">
-                            Grade 3
-                        </option>
-                        <option class= "exclude-from-delete" value="4">
-                            Grade 4
-                        </option>
-                        <option class= "exclude-from-delete" value="5">
-                            Grade 5
-                        </option>
-                        <option class= "exclude-from-delete" value="6">
-                            Grade 6
-                        </option>
-                        <option class= "exclude-from-delete" value="7">
-                            Grade 7
-                        </option>
-                        <option class= "exclude-from-delete" value="8">
-                            Grade 8
-                        </option>
-                        <option class= "exclude-from-delete" value="9">
-                            Grade 9
-                        </option>
-                        <option class= "exclude-from-delete" value="10">
-                            Grade 10
-                        </option>
-                        <option class= "exclude-from-delete" value="11">
-                            Grade 11
-                        </option>
-                        <option class= "exclude-from-delete" value="12">
-                            Grade 12
-                        </option>
-                    </select>
-                </div>
-                <div class="input-group-special">
-                    <label for="section" style="margin-top: 1em;">Section</label>
-                    <select id="section" class="select-input" required>
-                        <option value="null">
-                            ---
-                            <option class="_1 exclude-from-delete" value="Luke" hidden>
-                                Luke
-                            </option>
-                            <option class="_1 exclude-from-delete" value="Tyrone" hidden>
-                                Tyrone
-                            </option>
-                            <option class="_1 exclude-from-delete" value="Adrian" hidden>
-                                Adrian
-                            </option>
-                            <option class="_1 exclude-from-delete" value="Fuack" hidden>
-                                Fuack
-                            </option>
-                            <option class="_2 exclude-from-delete" value="Eyo" hidden>
-                                Eyo
-                            </option>
-                            <option class="_2 exclude-from-delete" value="Leggo" hidden>
-                                Leggo
-                            </option>
-                            <option class="_2 exclude-from-delete" value="Bruh" hidden>
-                                Bruh
-                            </option>
-                            <option class="_2 exclude-from-delete" value="Cap" hidden>
-                                Cap
-                            </option>
-                            <option class="_3 exclude-from-delete" value="Placeholder" hidden>
-                                Placeholder
-                            </option>
-                            <option class="_3 exclude-from-delete" value="Masipag" hidden>
-                                Masipag
-                            </option>
-                            <option class="_3 exclude-from-delete" value="Matatag" hidden>
-                                Matatag
-                            </option>
-                            <option class="_3 exclude-from-delete" value="Blood" hidden>
-                                Blood
-                            </option>
-                        </select>
-                </div>
-                </div>
-                <br>
-                <div class="form-group">
-                    <div class="input-group-special">
-                        <label for="fetcher">Fetcher</label>
-                        <input type="text" class='input-field' id='fetch' required>
-                    </div>
-                    <div class="input-group-special">
-                        <label for="enroll-status">Enroll Status</label>
-                        <input type="text" class='input-field' id='enroll-status' required>
-                    </div>
-                    <div class="input-group-special">
-                        <label for="birthday">Birthday</label>
-                        <input type="text" class='input-field' id='birthday' required>
-                    </div>
-                    <div class="input-group-special">
-                        <label for="address">Address</label>
-                        <input type="text" class='input-field' id='address' required>
-                    </div>
-                </div>
-                <br>
-                <div class = "form-group">
-                    <div class="input-group-special">
-                        <label for="city">City</label>
-                        <input type=text class='input-field' id='city' required>
-                    </div>
-                    <div class="input-group-special">
-                        <label for="region">Region</label>
-                        <input type=text class='input-field' id='region' required>
-                    </div>
-                    <div class="input-group-special">
-                        <label for="postal-code">Postal Code</label>
-                        <input type=text class='input-field' id='postal-code' required>
-                    </div>
-                    <div class="input-group-special">
-                        <label for="country">Country</label>
-                        <input type=text class='input-field' id='country' required>
-                    </div>
-                </div>
-
-                <br>
-                <div class = "form-group">
-                    <div class="input-group-special">
-                        <label for="nationality">Nationality</label>
-                        <input type=text class='input-field' id='nationality' required>
-                    </div>
-                    <div class="input-group-special">
-                        <label for="sex">Sex</label>
-                        <input type=text class='input-field' id='sex' required>
-                    </div>
-                    <div class="input-group-special">
-                        <label for="telephone-number">Telephone Number</label>
-                        <input type=text class='input-field' id='telephone-number' required>
-                    </div>
                     <div class="input-column">
                         <div class="input-group-special">
                             <label for="fetcher">Fetcher</label>
@@ -658,10 +496,10 @@
                             </div>
                             <div class="input-group-special">
                                 <label for="enroll-status">Enrollment Status</label>
-                                <select id="enroll-status" class="select-input" required>
+                                <select id="enroll-status" class="select_input" required>
                                     <option value="null">---</option>
-                                    <option value="1">Enrolled</option>
-                                    <option value="2">Pending</option>
+                                    <option value="Enrolled">Enrolled</option>
+                                    <option value="Pending">Pending</option>
                                 </select>
                             </div>
                             <div class="input-group-special">
