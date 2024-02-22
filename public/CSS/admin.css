@@ -264,7 +264,7 @@ body {
     color: black;
     background-color: white;
     border-radius: 5px;
-    max-width: 1500px;
+    max-width: 15000px;
     width: 100%;
     padding: 20px;
 }
@@ -291,7 +291,6 @@ body {
 .emp-masterlist {
     border-collapse: collapse;
     border: 2px solid #f2f2f2;
-    
 }
 
 .emp-masterlist th {
@@ -348,7 +347,7 @@ body {
     color: black;
     background-color: white;
     border-radius: 5px;
-    max-width: 1500px;
+    max-width: 15000px;
     width: 100%;
     padding: 20px;
 }
