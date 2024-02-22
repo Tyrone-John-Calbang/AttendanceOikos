@@ -177,9 +177,17 @@
             flex-direction:column;
         }
         .input-group-special{
-            width:50%;
-            display:flex;
-            flex-direction:column;
+            display: flex;
+            flex-direction: column;
+        }
+        .input-group-special input,
+        .input-group-special select {
+            padding: 0.5rem;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            margin-bottom: .5rem;
+            width: 100%;
         }
         .input-field{
             border:none; 
@@ -226,6 +234,14 @@
             opacity:0.2;
             letter-spacing: 0.5em
         }
+        .input-row {
+            display: flex;
+            width: 100%;
+        }
+
+        .input-column {
+            flex: 1;
+            margin-right: 1rem;
 
 
         .form-container-add {
@@ -287,7 +303,7 @@
                     <div class="std-filter-container">
                         <div class="search-table-container">
                             <div class="std-search-container">
-                                <input type="text" id="search" size="30" placeholder="Search...">
+                                <input type="text" id="search" size="30" placeholder="Search..." oninput="applyFilter()">
                             </div>
                         </div>
                     </div>
@@ -406,6 +422,50 @@
     </div>
     <div id="student-modal" class="modal-mask hidden">
         <div class="form-container">
+            <div class="form-header"><h2>Add Student</h2><i class="far fa-times-circle" style="font-size:1.3rem;cursor:pointer;"></i></div>
+            <form id="form-content">
+                <div class="input-row">
+                    <div class="input-column">
+                        <div class="input-group-special">
+                                <label for="first-name">First Name</label>
+                                <input type="text" class='input-field' id='first-name' required>
+                        </div>
+                        <div class="input-group-special">
+                                <label for="middle-name">Middle Name</label>
+                                <input type="text" class='input-field' id='middle-name' required>
+                        </div>
+                        <div class="input-group-special">
+                                <label for="last-name">Last Name</label>
+                                <input type="text" class='input-field' id='last-name' required>
+                        </div>
+                        <div class="input-group-special">
+                                <label for="extension">Suffix</label>
+                                <input type="text" class='input-field' id='extension'>
+                        </div>
+                        <div class="input-group-special">
+                            <label for="sex">Sex</label>
+                            <select id="sex" class="select-input" required>
+                                <option value="null">---</option>
+                                <option value="1">Male</option>
+                                <option value="2">Female</option>
+                            </select>
+                        </div>
+                        <div class="input-group-special">
+                            <label for="telephone-number">Telephone Number</label>
+                            <input type="text" class='input-field' id='telephone-number' required>
+                        </div>
+                        <div class="input-group-special">
+                            <label for="mobile-number">Mobile Number</label>
+                            <input type="text" class='input-field' id='mobile-number' required>
+                        </div>
+                        <div class="input-group-special">
+                            <label for="nationality">Nationality</label>
+                            <input type="text" class='input-field' id='nationality' required>
+                        </div>
+                        <div class="input-group-special">
+                                <label for="birthday">Birthdate</label>
+                                <input type="date" id='birthday' required>
+                        </div>
             <div class="form-header">
                 <h2>Add Student</h2>
                 <i class="far fa-times-circle" onclick ="hideStudentModal()" style="font-size:1.3rem;cursor:pointer;"></i>
@@ -571,15 +631,77 @@
                         <label for="telephone-number">Telephone Number</label>
                         <input type=text class='input-field' id='telephone-number' required>
                     </div>
-                    <div class="input-group-special">
-                        <label for="mobile-number">Mobile Number</label>
-                        <input type=text class='input-field' id='mobile-number' required>
+                    <div class="input-column">
+                        <div class="input-group-special">
+                            <label for="fetcher">Fetcher</label>
+                            <input type="text" class='input-field' id='fetch' required>
+                        </div>
+                            <div class="input-group-special">
+                                <label for="address">Address</label>
+                                <input type="text" class='input-field' id='address' required>
+                            </div>
+                            <div class="input-group-special">
+                                <label for="city">City</label>
+                                <input type="text" class='input-field' id='city' required>
+                            </div>
+                            <div class="input-group-special">
+                                <label for="region">Region</label>
+                                <input type="text" class='input-field' id='region' required>
+                            </div>
+                            <div class="input-group-special">
+                                <label for="postal-code">Postal Code</label>
+                                <input type="text" class='input-field' id='postal-code' required>
+                            </div>
+                            <div class="input-group-special">
+                                <label for="country">Country</label>
+                                <input type="text" class='input-field' id='country' required>
+                            </div>
+                            <div class="input-group-special">
+                                <label for="enroll-status">Enrollment Status</label>
+                                <select id="enroll-status" class="select-input" required>
+                                    <option value="null">---</option>
+                                    <option value="1">Enrolled</option>
+                                    <option value="2">Pending</option>
+                                </select>
+                            </div>
+                            <div class="input-group-special">
+                                <label for="grade-level">Grade Level</label>
+                                <select id="grade-level" class="select-input" required>
+                                    <option value="null">---</option>
+                                    <option value="1">Grade 1</option>
+                                    <option value="2">Grade 2</option>
+                                    <option value="3">Grade 3</option>
+                                    <option value="4">Grade 4</option>
+                                    <option value="5">Grade 5</option>
+                                    <option value="6">Grade 6</option>
+                                    <option value="7">Grade 7</option>
+                                    <option value="8">Grade 8</option>
+                                    <option value="9">Grade 9</option>
+                                    <option value="10">Grade 10</option>
+                                    <option value="11">Grade 11</option>
+                                    <option value="12">Grade 12</option>
+                                </select>
+                            </div>
+                            <div class="input-group-special">
+                                <label for="section" >Section</label>
+                                <select id="section" class="select-input" required>
+                                    <option value="null">---</option>
+                                    <option class = "_1" value="Luke" hidden>Luke</option>
+                                    <option class = "_1" value="Tyrone" hidden>Tyrone</option>
+                                    <option class = "_1" value="Adrian" hidden>Adrian</option>
+                                    <option class = "_1" value="Fuack" hidden>Fuack</option>
+                                    <option class = "_2" value="Eyo" hidden>Eyo</option>
+                                    <option class = "_2" value="Leggo" hidden>Leggo</option>
+                                    <option class = "_2" value="Bruh" hidden>Bruh</option>
+                                    <option class = "_2" value="Cap" hidden>Cap</option>
+                                    <option class = "_3" value="Placeholder" hidden>Placeholder</option>
+                                    <option class = "_3" value="Masipag" hidden>Masipag</option>
+                                    <option class = "_3" value="Matatag" hidden>Matatag</option>
+                                    <option class = "_3" value="Blood" hidden>Blood</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-
-
-
                 <br><br>
                 <div class="submit-group">
                     <button onclick = "addStudent(event)" class="btn-submit">Add</button>
