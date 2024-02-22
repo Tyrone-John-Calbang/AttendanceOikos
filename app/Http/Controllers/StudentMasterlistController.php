@@ -8,11 +8,6 @@ use App\Models\Students;
 
 class StudentMasterlistController extends Controller
 {
-    public function showData() {
-        $students = Students::all();
-
-    }
-
     public function addStudent(Request $request) {
 
         $firstName = $request->input('firstName');
