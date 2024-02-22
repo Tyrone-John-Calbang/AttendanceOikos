@@ -11,7 +11,19 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Oikos Admin: Student Master List</title>
     <style>
+        .std-attendance-type th button {
+            background: none;
+            border: none;
+            padding: 0;
+            transition: color 0.3s ease;
+            color: gray;
+            margin-right: 2%;
+            cursor: pointer;
+        }
 
+        .std-attendance-type th button:hover {
+            color:white; 
+        }
       
         .add-student-btn {
             font-size: 1em;
@@ -313,45 +325,13 @@
                     <thead>
                         <tr>
                             <th>QR</th>
-                            <th>
-                                <button class="sort-button" onclick="sortColumnByID()">
-                                    <i class="fa-solid fa-arrow-down-wide-short"></i>
-                                </button>
-                                ID
-                            </th>
-                            <th>
-                                <button class="sort-button" onclick="sortColumnByName()">
-                                    <i class="fa-solid fa-arrow-down-wide-short" id="sort-icon-name"></i>
-                                </button>
-                                Name
-                            </th>
-                            <th>
-                                <button class="sort-button" onclick="sortColumnByDate()">
-                                    <i class="fa-solid fa-arrow-down-wide-short"></i>
-                                </button>
-                                Date
-                            </th>
-                            <th>
-                                <button class="sort-button" onclick="sortColumnByLevel()">
-                                    <i class="fa-solid fa-filter"></i>
-                                </button>
-                                Level
-                            </th>
-                            <th>
-                                <button class="sort-button" onclick="sortColumnBySection()">
-                                    <i class="fa-solid fa-arrow-down-wide-short"></i>
-                                </button>
-                                Section
-                            </th>
-                            <th>
-                                <button class="sort-button" onclick="sortColumnByStatus()">
-                                <i class="fa-solid fa-filter"></i>
-                            </button>
-                            Status
-                            </th>
-                            <th>
-                                Action
-                            </th> 
+                            <th><button><i class="fa-solid fa-arrow-down-wide-short" onclick="sortColumnByID()"></i></button>ID</th>
+                            <th><button><i class="fa-solid fa-arrow-down-wide-short" onclick="sortColumnByName()"></i></button>Name</th>
+                            <th><button><i class="fa-solid fa-arrow-down-wide-short" onclick="sortColumnByDate()"></i></button>Date</th>
+                            <th><button><i class="fa-solid fa-filter" onclick="sortColumnByLevel()"></i></button>Level</th>
+                            <th><button><i class="fa-solid fa-arrow-down-wide-short" onclick="sortColumnBySection()"></i></button>Section</th>
+                            <th><button><i class="fa-solid fa-filter" onclick="sortColumnByStatus()"></i></button>Status</th>
+                            <th>Action</th> 
                         </tr>
                     </thead>
                     <tbody id="logTableBody">
@@ -546,37 +526,9 @@
                     <button onclick = "addStudent(event)" class="btn-submit">Add</button>
                     <button class="btn-cancel" onclick ="hideStudentModal()">Cancel</button>
                     <button class="btn-import" onclick="excelOpen(event)">Import</button>
-                    <!--FInished
-                    fname
-                    lname
-                    minitial
-                    extension
-                    Level
-                    Section
-                    Fetcher
-                    Enroll status
-                    bday
-                    address
-                    city
-                    region
-                    postal code
-                    country
-                    nationality
-                    sex
-                    telephone number
-                    mobile number
-                    TODO
-                    
-                    not included
-                    student id
-                    email
-                    password
-                    
-                -->
                 </div>
 
-                
-                
+                  
             </form>
             <div class="form-import" id="import">
                 <button class="close" onclick="excelclose(event)" style="float:right;"><i class="fa-solid fa-xmark"></i></button>
@@ -609,6 +561,9 @@
                     </option>
                     <option value="Not Enrolled">
                         Not Enrolled
+                    </option>
+                    <option value="Pending">
+                        Pending
                     </option>
                 </select>
                 <button class="btn-save">Save Status</button>
@@ -651,11 +606,7 @@
                         statusCell.style.color = '';
                     }
                 }
-                const searchIcon = document.getElementById('search-icon');
 
-            //searchIcon.addEventListener('click', function () {
-                //applyFilter(); 
-           // }); 
             });
             function applyFilter() {
                 var searchValue = document.getElementById('search').value.toLowerCase();
@@ -674,7 +625,6 @@
             }
             let sortDirectionID = 1;
             let sortDirectionName = 1;
-             
             let sortDirectionDate = 1;
             let sortDirectionLevel = 1; 
             let sortDirectionSection = 1; 
@@ -858,7 +808,7 @@
         let textArea=document.querySelector('textarea');
         let select=document.querySelector('select');
         let gradeElement=document.getElementById('grade-level');
-
+        
         function showStudentModal() {
             document.getElementById('student-modal').classList.remove('hidden');
         }
@@ -866,8 +816,6 @@
             document.getElementById('student-modal').classList.add('hidden');
         }
 
-
-
         gradeElement.addEventListener('change', ()=>{
             let sectionSelector = '._' + gradeElement.value;
             let previousSelected = document.querySelectorAll('.show');
@@ -896,7 +844,6 @@
             document.getElementById("import") .style.display ="none";
         }
 
-
         gradeElement.addEventListener('change', ()=>{
             let sectionSelector = '._' + gradeElement.value;
             let previousSelected = document.querySelectorAll('.show');
@@ -924,8 +871,6 @@
             event.preventDefault();
             document.getElementById("import") .style.display ="none";
         }
-
-
 
         document.addEventListener('DOMContentLoaded', function () {
             loadFromLocalStorage('gradeLevels', 'grade-level');
@@ -1001,7 +946,6 @@
         document.getElementById('form-content-section').addEventListener('submit', function(event) {
             event.preventDefault();
         });
-
 
         function showRemoveModal() {
             populateRemoveDropdown();
@@ -1083,7 +1027,6 @@
             document.getElementById('add-section-modal').classList.add('hidden');
         }
     </script>
-
     <script src = "/JS/addStudent.js"></script>
     <script src="/JS/navevent.js"></script>
 </body>
