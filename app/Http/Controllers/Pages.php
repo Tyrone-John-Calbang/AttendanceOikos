@@ -119,8 +119,8 @@ class Pages extends Controller
         $Students = Students::get();
         return view("admin.student_masterlist", ["Students"=> $Students]);
     }
-    public function a_emasterlist(){
-        $employees = Employees::get();
+    public function a_emasterlist(){ 
+        $employees = Employees::where("position", "!=", "Admin")->get();
         return view("admin.employee_masterlist", ["employees"=>$employees]);
     }
 }

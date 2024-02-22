@@ -14,13 +14,16 @@
 
     <style>
         .add-emp-btn {
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-            padding: .75rem;
+            font-size: 1em;
+            font: sans-serif;
+            padding: 10px;
             background-color: #323468;
-            color: #fff;
+            color: white;
+            border: none;
             border-radius: 5px;
-            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1em;
+            margin-bottom: 1em;
         }
         .add-emp-btn:hover {
             opacity: 85%;
@@ -162,6 +165,18 @@ Change Gender to Sex (done)
                             <input type="text" id="extendName" name="extendName" required>
                         </div>
                         <div class="input-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" required min="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="sex">Sex</label>
+                            <select id="sex" name="Sex" required>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
                             <label for="TelNumber">Telephone Number</label>
                             <input type="text" id="TelNumber" name="TelNumber" required>
                         </div>
@@ -169,8 +184,18 @@ Change Gender to Sex (done)
                             <label for="phoneNumber">Phone Number</label>
                             <input type="text" id="phoneNumber" name="phoneNumber" required>
                         </div>
+                        <div class="input-column">
+                            <div class="input-group">
+                                <label for="Birthday">Birthdate</label>
+                                <input type="date" id="birthday" name="birthday" required>
+                            </div>
+                        </div>
                     </div>
                     <div class="input-column">
+                        <div class="input-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
                         <div class="input-group">
                             <label for="address">Address</label>
                             <input type="text" id="address" name="address" required>
@@ -195,38 +220,20 @@ Change Gender to Sex (done)
                             <label for="nationality">Nationality</label>
                             <input type="text" id="nationality" name="nationality" required>
                         </div>
-                        <div class="input-group">
-                            <label for="age">Age</label>
-                            <input type="number" id="age" name="age" required min="0">
-                        </div>
-                    </div>
-                </div>
-                <div class="input-row">
-                    <div class="input-column">
-                        <div class="input-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="input-group">
-                            <label for="Birthday">Birthdate</label>
-                            <input type="date" id="birthday" name="birthday" required>
-                        </div>
-                    </div>
-                    <div class="input-column">
-                        <div class="input-group">
-                            <label for="sex">Sex</label>
-                            <select id="sex" name="Sex" required>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
+                        
                         <div class="input-group">
                             <label for="position">Position</label>
                             <select id="position" name="position" required>
                                 <option value="T">Teacher</option>
                                 <option value="A">Admin</option>
                                 <option value="IT">IT</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="select-status">Status</label>
+                            <select id="select-status" name="select-status" required>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
                             </select>
                         </div>
                     </div>
