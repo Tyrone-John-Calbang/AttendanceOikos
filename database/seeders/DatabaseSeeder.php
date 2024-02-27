@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         EBackg::factory()->create();
         EExperience::factory()->create();
         EEducation::factory()->create();
+
         $this->call([UserSeeder::class]);
     }
 }

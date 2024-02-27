@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Employees;
 
 use App\Models\Students;
 
@@ -80,6 +81,7 @@ class Pages extends Controller
     public function e_approval(){
         return view("employees.approval");
     }
+    
 
     //Admin Navigation
     public function a_dashboard(){
@@ -114,9 +116,11 @@ class Pages extends Controller
         return view("admin.document_request");
     }
     public function a_smasterlist(){
-        return view("admin.student_masterlist");
+        $Students = Students::get();
+        return view("admin.student_masterlist", ["Students"=> $Students]);
     }
-    public function a_emasterlist(){
-        return view("admin.employee_masterlist");
+    public function a_emasterlist(){ 
+        $employees = Employees::where("position", "!=", "Admin")->get();
+        return view("admin.employee_masterlist", ["employees"=>$employees]);
     }
 }

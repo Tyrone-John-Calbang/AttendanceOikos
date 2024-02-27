@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ForgotPassword;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\StudentMasterlistController;
 use App\Http\Controllers\EmployeeMasterListController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Pages;
@@ -43,6 +44,8 @@ Route::get('/admin/Employee_Masterlist',[Pages::class,'a_emasterlist']);
 Route::get('/admin/Time_Record/Student',[Pages::class,'a_tr_student']);
 Route::get('/admin/Time_Record/Employee',[Pages::class,'a_tr_employee']);
 Route::get('/admin/Time_Record/DepEd',[Pages::class,'a_tr_deped']);
+
+Route::post('/add-student', [StudentMasterlistController::class, 'addStudent']);
 Route::post('/add-employee',[EmployeeMasterListController::class,'create']);
     
 

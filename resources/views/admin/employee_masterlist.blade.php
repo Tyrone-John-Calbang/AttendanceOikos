@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="/assets/Oikos Logo.png">
     <link rel="stylesheet" href="/CSS/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -13,13 +14,16 @@
 
     <style>
         .add-emp-btn {
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-            padding: .75rem;
+            font-size: 1em;
+            font: sans-serif;
+            padding: 10px;
             background-color: #323468;
-            color: #fff;
+            color: white;
+            border: none;
             border-radius: 5px;
-            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1em;
+            margin-bottom: 1em;
         }
         .add-emp-btn:hover {
             opacity: 85%;
@@ -58,10 +62,6 @@
         .input-group {
             display: flex;
             flex-direction: column;
-        }
-
-        .input-group label {
-            font-weight: bold;
         }
 
         .input-group input,
@@ -165,63 +165,9 @@ Change Gender to Sex (done)
                             <input type="text" id="extendName" name="extendName" required>
                         </div>
                         <div class="input-group">
-                            <label for="TelNumber">Telephone Number</label>
-                            <input type="text" id="TelNumber" name="TelNumber" required>
-                        </div>
-                        <div class="input-group">
-                            <label for="contactNumber">Contact Number</label>
-                            <input type="text" id="contactNumber" name="contactNumber" required>
-                        </div>
-                        <div class="input-group">
-                            <label for="phoneNumber">Phone Number</label>
-                            <input type="text" id="phoneNumber" name="phoneNumber" required>
-                        </div>
-                        
-                        
-                    </div>
-                    <div class="input-column">
-                        <div class="input-group">
-                            <label for="address">Address</label>
-                            <input type="text" id="address" name="address" required>
-                        </div>
-                        <div class="input-group">
-                            <label for="City">City</label>
-                            <input type="text" id="CityName" name="CityName" required>
-                        </div>
-                        <div class="input-group">
-                            <label for="postalNumber">Postal Code</label>
-                            <input type="text" id="postalNumber" name="postalNumber" required>
-                        </div>
-                        <div class="input-group">
-                            <label for="Region">Region</label>
-                            <input type="text" id="RegionName" name="RegionName" required>
-                        </div>
-                        <div class="input-group">
-                            <label for="countryName">Country</label>
-                            <input type="text" id="countryName" name="countryName" required>
-                        </div>
-                        <div class="input-group">
-                            <label for="nationality">Nationality</label>
-                            <input type="text" id="nationality" name="nationality" required>
-                        </div>
-                        <div class="input-group">
                             <label for="age">Age</label>
                             <input type="number" id="age" name="age" required min="0">
                         </div>
-                    </div>
-                </div>
-                <div class="input-row">
-                    <div class="input-column">
-                        <div class="input-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="input-group">
-                            <label for="Birthday">Birthday</label>
-                            <input type="date" id="birthday" name="birthday" required>
-                        </div>
-                    </div>
-                    <div class="input-column">
                         <div class="input-group">
                             <label for="sex">Sex</label>
                             <select id="sex" name="Sex" required>
@@ -231,11 +177,63 @@ Change Gender to Sex (done)
                             </select>
                         </div>
                         <div class="input-group">
-                            <label for="role">Role</label>
-                            <select id="role" name="role" required>
+                            <label for="TelNumber">Telephone Number</label>
+                            <input type="text" id="TelNumber" name="TelNumber" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="phoneNumber">Phone Number</label>
+                            <input type="text" id="phoneNumber" name="phoneNumber" required>
+                        </div>
+                        <div class="input-column">
+                            <div class="input-group">
+                                <label for="Birthday">Birthdate</label>
+                                <input type="date" id="birthday" name="birthday" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-column">
+                        <div class="input-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" name="address" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="City">City</label>
+                            <input type="text" id="cityName" name="CityName" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="postalNumber">Postal Code</label>
+                            <input type="text" id="postalNumber" name="postalNumber" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="Region">Region</label>
+                            <input type="text" id="regionName" name="RegionName" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="countryName">Country</label>
+                            <input type="text" id="countryName" name="countryName" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="nationality">Nationality</label>
+                            <input type="text" id="nationality" name="nationality" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="position">Position</label>
+                            <select id="position" name="position" required>
                                 <option value="T">Teacher</option>
                                 <option value="A">Admin</option>
                                 <option value="IT">IT</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="select-status">Status</label>
+                            <select id="select-status" name="select-status" required>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
                             </select>
                         </div>
                     </div>
@@ -256,12 +254,11 @@ Change Gender to Sex (done)
         let modalMask = document.querySelector('.modal-mask');
         let closeBtn = document.querySelector('.modal-close-btn');
         closeBtn.onclick = () => {
-        modalMask.classList.add('hidden');
+            modalMask.classList.add('hidden');
         }
         addEmpBtn.onclick = () => {
             modalMask.classList.remove('hidden');
         }
-
         let clearBtn = document.querySelector('.btn-clear');
         clearBtn.onclick = () => {
             // Select all input elements within the form and clear their values
@@ -269,7 +266,6 @@ Change Gender to Sex (done)
             // Select all select elements within the form and reset them to their default value
             document.querySelectorAll('#addEmployeeForm select').forEach(select => select.value = select.querySelector('option').value);
         }
-
         let addEmployeeForm = document.getElementById('addEmployeeForm');
         addEmployeeForm.addEventListener('submit', function(event) {
             event.preventDefault();
@@ -277,28 +273,28 @@ Change Gender to Sex (done)
             modalMask.classList.add('hidden');
         });
 
-        const employee={
-            'First-Name':document.getElementById('firstName').value,
-            'Middle-Name':document.getElementById('middleName').value,
-            'Last-Name':document.getElementById('lastName').value,
-            'extendName':document.getElementById('extendName').value,
-            'Address':document.getElementById('address').value,
-            'Phone-Number':document.getElementById('TelNumber').value,
-            'Contact-Number':document.getElementById('contactNumber').value,
-            'Age':document.getElementById('age').value,
-            'City':document.getElementById('cityName').value,
-            'Region':document.getElementById('regionName').value,
-            'PostalNumber':document.getElementById('postalNumber').value,
-            'Country':document.getElementById('countryName').value,
-            'Nationality':document.getElementById('nationality').value,
-            'Email':document.getElementById('email').value,
-            'Birthday':document.getElementById('birthday').value,
-            'Sex':document.getElementById('sex').value,
-            'Role':document.getElementById('role').value
-        }
+        
         const csrf = document.querySelector("meta[name='csrf-token']")
         function addemployee(event){
             event.preventDefault();
+            const employee={
+                firstName:document.getElementById('firstName').value,
+                middleName:document.getElementById('middleName').value,
+                lastName:document.getElementById('lastName').value,
+                extendName:document.getElementById('extendName').value,
+                address:document.getElementById('address').value,
+                phoneNumber:document.getElementById('phoneNumber').value,
+                TelNumber:document.getElementById('TelNumber').value,
+                age:document.getElementById('age').value,
+                cityName:document.getElementById('cityName').value,
+                regionName:document.getElementById('regionName').value,
+                postalNumber:document.getElementById('postalNumber').value,
+                countryName:document.getElementById('countryName').value,
+                nationality:document.getElementById('nationality').value,
+                birthday:document.getElementById('birthday').value,
+                sex:document.getElementById('sex').value,
+                position:document.getElementById('position').value
+            };
             fetch("/add-employee",{
                 method: 'POST',
                 headers:{'Content-Type':'application/json','X-CSRF-Token': csrf.content},
@@ -306,11 +302,12 @@ Change Gender to Sex (done)
             })
             .then(response=>response.json())
             .then(data =>{
-                console.log(data)
-                location.reload()
+                if(data.success){
+                    location.reload();
+                }
             })
             .catch(error =>{
-                console.log('Error! Employee data did not submit.',error)
+                console.log('Error! Employee data did not submit.',error);
             })
         }
 
